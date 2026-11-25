@@ -1,0 +1,465 @@
+{
+ "version": 1,
+ "updated": "2026-11-25T17:50:00+07:00",
+ "latestBatch": "2026-11-24",
+ "count": 25,
+ "jobs": [
+  {
+   "id": "debaa84fb9",
+   "added": "2026-11-24",
+   "title": "Performance Marketer",
+   "company": "EverAI",
+   "category": "AI / Consumer Software",
+   "level": "Senior",
+   "salary": "€47K – €65K / yr",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/163997-performance-marketer-remote-worldwide",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "82dc36ea2a",
+   "added": "2026-11-24",
+   "title": "Senior Web Security Engineer, Browser Platform",
+   "company": "DuckDuckGo",
+   "category": "Internet / Privacy",
+   "level": "Senior",
+   "salary": "$178,500 / yr",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/151281-senior-web-security-engineer-browser-platform",
+   "tags": [
+    "dev",
+    "security"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "201ae8e0de",
+   "added": "2026-11-24",
+   "title": "Red Team Lead",
+   "company": "Supabase",
+   "category": "Developer Tools / Security",
+   "level": "Lead",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/red-team-lead-supabase-805",
+   "tags": [
+    "security"
+   ],
+   "levels": [
+    "lead"
+   ]
+  },
+  {
+   "id": "71287cb259",
+   "added": "2026-11-24",
+   "title": "Senior iOS Engineer, Core Discovery",
+   "company": "Raya",
+   "category": "Consumer Social / Mobile",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/senior-ios-engineer-core-discovery-raya-9151",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "bac8783c87",
+   "added": "2026-11-24",
+   "title": "Senior Performance Strategist",
+   "company": "Superside",
+   "category": "Creative / Marketing",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/senior-performance-strategist-superside-377",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "cc4de34bf9",
+   "added": "2026-11-23",
+   "title": "Graduate Customer Success Manager",
+   "company": "Canonical",
+   "category": "Software / Open Source",
+   "level": "Entry",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/153669-graduate-customer-success-manager",
+   "tags": [],
+   "levels": [
+    "entry"
+   ]
+  },
+  {
+   "id": "a224ce58a6",
+   "added": "2026-11-23",
+   "title": "Backend Developer (Node), Part-time",
+   "company": "Zoftify",
+   "category": "Travel Software",
+   "level": "Mid",
+   "salary": null,
+   "note": "part-time",
+   "location": "Worldwide",
+   "url": "https://himalayas.app/companies/zoftify-travel-software-development/jobs/backend-developer-node-part-time",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "9d2d1a546b",
+   "added": "2026-11-23",
+   "title": "Email Designer",
+   "company": "Winona",
+   "category": "Healthcare / Telemedicine",
+   "level": "Mid",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/email-designer-winona-2734",
+   "tags": [
+    "design"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "7a260ee294",
+   "added": "2026-11-23",
+   "title": "Product Engineer",
+   "company": "SafetyWing",
+   "category": "Insurance / Fintech",
+   "level": "Mid",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/product-engineer-safetywing-5965",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "cea15ec155",
+   "added": "2026-11-23",
+   "title": "Conceptual Copywriter",
+   "company": "Superside",
+   "category": "Creative / Marketing",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/153612-conceptual-copywriter",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "58fc91bd10",
+   "added": "2026-11-20",
+   "title": "Full-Stack Engineer (Backend Leaning), Creative Agents",
+   "company": "ElevenLabs",
+   "category": "AI / Software",
+   "level": "Senior-leaning",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/155939-full-stack-engineer-backend-leaning-creative-agents",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "48834ee88b",
+   "added": "2026-11-20",
+   "title": "Financial Data Manager",
+   "company": "Counterpart",
+   "category": "Insurtech / Finance",
+   "level": "Mid–Senior",
+   "salary": "$150K – $180K / yr",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/financial-data-manager-counterpart-5564",
+   "tags": [
+    "data"
+   ],
+   "levels": [
+    "mid",
+    "senior"
+   ]
+  },
+  {
+   "id": "0c1aa2b33b",
+   "added": "2026-11-20",
+   "title": "Lifecycle QA Specialist",
+   "company": "Winona",
+   "category": "Healthcare / Email Marketing",
+   "level": "Junior–Mid",
+   "salary": null,
+   "note": "contractor",
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/lifecycle-qa-specialist-winona-8807",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "entry",
+    "mid"
+   ]
+  },
+  {
+   "id": "4a773910af",
+   "added": "2026-11-20",
+   "title": "Influencer & Media Manager",
+   "company": "Yodo1",
+   "category": "Gaming / PR",
+   "level": "Mid–Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/influencer-media-manager-yodo1-3464",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "mid",
+    "senior"
+   ]
+  },
+  {
+   "id": "2293190a1e",
+   "added": "2026-11-20",
+   "title": "Senior Product Marketing Manager",
+   "company": "Uscreen",
+   "category": "Video SaaS",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/senior-product-marketing-manager-uscreen-4449",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "a800ee9028",
+   "added": "2026-11-20",
+   "title": "Mantle Squad (Global Community Ambassador)",
+   "company": "Windranger Labs",
+   "category": "Web3 / Community",
+   "level": "Mid",
+   "salary": null,
+   "note": "part-time",
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/153447-mantle-squad-global",
+   "tags": [
+    "crypto"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "4cb8131ed2",
+   "added": "2026-11-20",
+   "title": "Mobile Engineer, React Native",
+   "company": "Tether",
+   "category": "Crypto / Fintech",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://himalayas.app/companies/tether-operations-limited/jobs/mobile-engineer-react-native-100-remote-worldwide",
+   "tags": [
+    "dev",
+    "crypto"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "1e46f27f8d",
+   "added": "2026-11-20",
+   "title": "Senior Software Engineer (Backend)",
+   "company": "vCluster Labs",
+   "category": "Cloud / Kubernetes",
+   "level": "Senior",
+   "salary": "€60K – €125K / yr",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://himalayas.app/companies/vcluster-labs/jobs/senior-software-engineer-backend",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "d315aa3eeb",
+   "added": "2026-11-20",
+   "title": "Principal Platform Engineer",
+   "company": "Phizenix",
+   "category": "IT Consulting / Platform Engineering",
+   "level": "Principal",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://himalayas.app/companies/phizenix/jobs/principal-platform-engineer",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "lead"
+   ]
+  },
+  {
+   "id": "7eeed40977",
+   "added": "2026-11-20",
+   "title": "Full-Stack Web Developer (Next.js)",
+   "company": "Elvoro",
+   "category": "AI Marketing Tech",
+   "level": "Mid · freelance",
+   "salary": "$1K – $3K · project",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://himalayas.app/companies/elvoro/jobs/full-stack-web-developer-next-js-elvoro-ltd",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "4d522f94dc",
+   "added": "2026-11-18",
+   "title": "Graduate Software Engineer, Open Source & Linux",
+   "company": "Canonical",
+   "category": "Software / Open Source",
+   "level": "Entry · 2026/27 grads",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/graduate-software-engineer-open-source-and-linux-canonical-ubuntu-canonical-6649",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "entry"
+   ]
+  },
+  {
+   "id": "ffa38dfbee",
+   "added": "2026-11-18",
+   "title": "Junior Market Specialist / Analyst",
+   "company": "Hillside Piers Ltd",
+   "category": "Crypto / Trading",
+   "level": "Junior",
+   "salary": "$60K – $80K / yr",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/junior-market-specialist-analyst-remote-hillside-piers-ltd-368",
+   "tags": [
+    "crypto",
+    "data"
+   ],
+   "levels": [
+    "entry"
+   ]
+  },
+  {
+   "id": "3634cfcd09",
+   "added": "2026-11-18",
+   "title": "Staff Software Engineer (SRE)",
+   "company": "Phantom",
+   "category": "Crypto / Fintech",
+   "level": "Staff / Senior",
+   "salary": "$200K – $250K + equity",
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/155601-staff-software-engineer-sre-2",
+   "tags": [
+    "dev",
+    "crypto"
+   ],
+   "levels": [
+    "senior",
+    "lead"
+   ]
+  },
+  {
+   "id": "ef7d69199a",
+   "added": "2026-11-18",
+   "title": "Senior DevOps Engineer",
+   "company": "EPAM Systems",
+   "category": "IT Services",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://weworkremotely.com/remote-jobs/epam-systems-senior-devops-engineer",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "d233b29b85",
+   "added": "2026-11-18",
+   "title": "Head of Research",
+   "company": "CoinMarketCap",
+   "category": "Crypto Data / Research",
+   "level": "Head · 7+ yrs",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/head-of-research-coinmarketcap-9025",
+   "tags": [
+    "crypto",
+    "data"
+   ],
+   "levels": [
+    "lead"
+   ]
+  }
+ ]
+}
