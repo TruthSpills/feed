@@ -7,8 +7,8 @@
 <meta name="apple-mobile-web-app-title" content="Hack Thai">
 <meta name="description" content="Land like you're a local. Phuket beaches, food, scams, transport and trips — plus remote jobs you can do from the island.">
 <title>Hack Thai · Phuket</title>
-<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/sunset-192.png">
+<link rel="apple-touch-icon" href="img/sunset-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{--bg:#150a17;--s1:#1e0f22;--s2:#2a1430;--line:#ffffff12;--line2:#2a1a2e;
@@ -476,7 +476,7 @@ function installSheet(){
  const warn=IN_APP?`<div class="warn"><b>You’re inside Instagram’s browser</b>, which can’t add apps. Tap <b>•••</b> in the top right and choose <b>Open in external browser</b> (or Open in Safari / Chrome), then follow the steps below.</div>`:'';
  const d=document.createElement('div');d.className='inst';
  d.innerHTML=`<button class="x" data-instclose aria-label="Close">${ic('x')}</button><div class="ib">
-  <div class="ih"><img src="img/apple-touch-icon.png" alt=""><div><h3>Get Hack Thai on your phone</h3><p>Free. Opens full screen, one tap from your home screen.</p></div></div>
+  <div class="ih"><img src="img/sunset-180.png" alt=""><div><h3>Get Hack Thai on your phone</h3><p>Free. Opens full screen, one tap from your home screen.</p></div></div>
   ${warn}${IS_ANDROID?and+ios:ios+and}</div>`;
  document.body.appendChild(d);
  try{history.pushState({v:view,sheet:1},'','#'+view)}catch(e){}
