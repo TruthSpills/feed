@@ -1,0 +1,29 @@
+{
+  "name": "Hack Thai \u00b7 Phuket",
+  "short_name": "Hack Thai",
+  "description": "Land like you're a local. Built for tourists, made by locals.",
+  "start_url": "/?creator_install=JANELLETHAI",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#150a17",
+  "theme_color": "#150a17",
+  "icons": [
+    {
+      "src": "img/sunset-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/sunset-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "img/sunset-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/"
+}

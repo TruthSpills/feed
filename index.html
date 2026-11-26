@@ -240,7 +240,7 @@ footer{padding:22px 18px 10px;color:var(--dim);font-size:12px;text-align:center;
 <div class="wrap">
 <header><button class="hback" id="hback" aria-label="Back" hidden>&lsaquo;</button><img class="logo" src="img/logo.webp" alt="Hack Thai Phuket" width="175" height="180"><span class="free">Free</span><button class="dlapp" id="dlapp" type="button">Download app</button></header>
 <aside id="creator-choice" class="body" hidden aria-label="Creator credit">
- <p>Remember who shared Hack Thai? Allow a 7-day cookie so the creator can earn commission if you buy later.</p>
+ <p>Remember who shared Hack Thai? Save your creator on this device with no time limit so they can earn commission when you buy. You can remove this anytime.</p>
  <button type="button" class="btn ghost sm" id="creator-allow">Remember creator</button>
  <button type="button" class="btn ghost sm" id="creator-skip">Skip</button>
 </aside>
@@ -307,33 +307,56 @@ const ASKS=[
  {ic:'glove',n:'Train at Ludus',d:'Muay Thai in Chalong. Tell me how long you want to train.',msg:'Hi Truth, I’d like to ask about training at Ludus.'}
 ];
 
-const creatorCookie = 'ht_creator';
-const creditWindow = 7 * 24 * 60 * 60 * 1000;
-const referralPattern = /^[a-zA-Z0-9_-]{1,32}$/;
-const incomingCode = new URLSearchParams(location.search).get('ref');
-let visitCode = incomingCode && referralPattern.test(incomingCode) ? incomingCode : null;
-const visitExpires = Date.now() + creditWindow;
-function savedCreator() {
- try {
-  const value = document.cookie.split('; ').find(part => part.startsWith(creatorCookie + '='));
-  if (!value) return null;
-  const [code, expires] = value.slice(creatorCookie.length + 1).split('.');
-  return referralPattern.test(code) && Number(expires) > Date.now() ? code : null;
- } catch { return null; }
+const creatorKey = 'ht_creator_v2';
+const creatorNames = new Map([
+ ['ORIGINALSUPAD', 'Super D'], ['JANELLETHAI', 'Janelle'], ['COACHEDBYABI', 'Coached by Abi']
+]);
+const creatorQuery = new URLSearchParams(location.search);
+const validCreator = value => creatorNames.has(value) ? value : null;
+const incomingRef = creatorQuery.get('ref');
+let visitCode = incomingRef && /^[A-Za-z0-9_-]{1,32}$/.test(incomingRef) ? incomingRef : null;
+const installedCode = validCreator(creatorQuery.get('creator_install'));
+function cookieValue(key) {
+ try { return document.cookie.split('; ').find(part => part.startsWith(key + '='))?.slice(key.length + 1); }
+ catch { return null; }
 }
-function rememberCreator() {
+let sessionChoice = null;
+function creatorRecord() {
  try {
-  document.cookie = creatorCookie + '=' + visitCode + '.' + visitExpires +
-   '; Path=/; Secure; SameSite=Lax; Expires=' + new Date(visitExpires).toUTCString();
- } catch { /* The current link still works when storage is unavailable. */ }
+  const stored = localStorage.getItem(creatorKey);
+  if (stored) return stored;
+ } catch { /* Cookies also carry the choice into a new iPhone installation. */ }
+ return sessionChoice || cookieValue(creatorKey);
+}
+function legacyCreator() {
+ const [code, expires] = (cookieValue('ht_creator') || '').split('.');
+ return Number(expires) > Date.now() ? validCreator(code) : null;
+}
+function savedCreator() {
+ const record = creatorRecord();
+ if (record === 'off') return null;
+ return validCreator(record) || installedCode;
+}
+function storeCreator(value) {
+ sessionChoice = value;
+ try { localStorage.setItem(creatorKey, value); } catch {}
+ try {
+  document.cookie = creatorKey + '=' + value + '; Path=/; Secure; SameSite=Lax; Max-Age=34560000';
+  document.cookie = 'ht_creator=; Path=/; Secure; SameSite=Lax; Max-Age=0';
+ } catch {}
+}
+function updateInstallLink() {
+ const code = savedCreator();
+ document.querySelector('link[rel="manifest"]').href = code ? 'creator-' + code + '.webmanifest' : 'manifest.webmanifest';
 }
 const creatorChoice = document.getElementById('creator-choice');
-if (visitCode) {
- if (savedCreator()) rememberCreator();
- else creatorChoice.hidden = false;
-}
+const originalCreator = savedCreator() || legacyCreator() || validCreator(visitCode);
+if (savedCreator()) storeCreator(savedCreator());
+else if (originalCreator) creatorChoice.hidden = false;
+updateInstallLink();
 document.getElementById('creator-allow').onclick = () => {
- rememberCreator();
+ if (originalCreator) storeCreator(savedCreator() || originalCreator);
+ updateInstallLink();
  creatorChoice.hidden = true;
  render();
 };
@@ -341,17 +364,19 @@ document.getElementById('creator-skip').onclick = () => { creatorChoice.hidden =
 function checkoutUrl() {
  const url = new URL(ACCESS);
  url.searchParams.set('buy', 'book');
- const code = savedCreator() || (Date.now() < visitExpires ? visitCode : null);
+ const code = savedCreator() || legacyCreator() || visitCode;
  if (code) url.searchParams.set('ref', code);
  return url.href;
 }
 const purchaseLink = () => '<a class="btn" data-checkout href="'+checkoutUrl()+'">Get the bundle · £17</a>';
 document.addEventListener('click', event => {
  if (event.target.closest('[data-forget-creator]')) {
-  document.cookie = creatorCookie + '=; Path=/; Secure; SameSite=Lax; Max-Age=0';
+  storeCreator('off');
+  updateInstallLink();
   visitCode = null;
   const current = new URL(location.href);
   current.searchParams.delete('ref');
+  current.searchParams.delete('creator_install');
   history.replaceState(history.state, '', current.href);
   render();
   return;
@@ -677,7 +702,7 @@ V.sos=()=>`<div class="hero"><div class="kick">Emergency<span class="free-tag">A
 function foot(){return `<footer>Hack Thai by Truth Spills · Phuket<br>
  Some links are affiliate links — they cost you nothing extra.<br>
  <a href="${IG}" target="_blank" rel="noopener" style="color:var(--gold)">@truthspillsmentor</a>
- ${savedCreator() ? '<br><button type="button" class="btn ghost sm" data-forget-creator>Forget saved creator</button>' : ''}</footer>`}
+ ${savedCreator() ? '<br>Creator: ' + esc(creatorNames.get(savedCreator())) + ' · <a href="https://hackthai.com/?ref=' + savedCreator() + '">Your creator link</a><br><button type="button" class="btn ghost sm" data-forget-creator>Forget saved creator</button>' : ''}</footer>`}
 
 const TABS=[['home','Home','home'],['tours','Trips','tour'],['nights','Nights','night'],['jobs','Jobs','job'],['guide','Guide','book'],['sos','Help','sos']];
 function render(){
