@@ -538,6 +538,53 @@ const IS_IOS=/iPhone|iPad|iPod/i.test(UA)||(navigator.platform==='MacIntel'&&nav
 const IS_ANDROID=/Android/i.test(UA);
 const IN_APP=/Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|Line\//i.test(UA);
 const STANDALONE=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+// Record each event separately so concurrent tabs can retry without losing records.
+(() => {
+ if (location.hostname !== 'hackthai.com' || navigator.globalPrivacyControl === true) return;
+ const prefix = 'ht_metric_pending_';
+ const endpoint = 'https://www.truth-spills.com/_functions/hackThaiFunnelEvent';
+ const sending = new Set();
+ function source() { return savedCreator() || legacyCreator() || validCreator(visitCode) || 'DIRECT'; }
+ async function send(key) {
+  if (sending.has(key)) return;
+  sending.add(key);
+  try {
+   const body = localStorage.getItem(key);
+   if (!body) return;
+   const result = await fetch(endpoint, {method:'POST', body, credentials:'omit', keepalive:true, referrerPolicy:'no-referrer'});
+   if (result.ok || result.status === 400) localStorage.removeItem(key);
+  } catch {} finally { sending.delete(key); }
+ }
+ function record(kind, id) {
+  const key = prefix + id;
+  if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify({kind, id, source:source()}));
+  void send(key);
+ }
+ function visit() {
+  const now = Date.now();
+  const last = Number(sessionStorage.getItem('ht_metric_last'));
+  if (!last || now - last >= 1800000) record('visit', crypto.randomUUID());
+  sessionStorage.setItem('ht_metric_last', String(now));
+ }
+ function retry() {
+  try { for (const key of Object.keys(localStorage)) if (key.startsWith(prefix)) void send(key); } catch {}
+ }
+ try {
+  visit();
+  if (STANDALONE && !localStorage.getItem('ht_metric_opened')) {
+   const id = crypto.randomUUID();
+   record('home', id);
+   localStorage.setItem('ht_metric_opened', id);
+  }
+  document.addEventListener('click', e => {
+   try { visit(); if (e.target.closest('#dlapp')) record('download', crypto.randomUUID()); } catch {}
+  }, true);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) { try {visit();} catch {} retry(); } });
+  window.addEventListener('online', retry);
+  retry();
+ } catch {}
+})();
+
 let DEFER_PROMPT=null;
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();DEFER_PROMPT=e});
 addEventListener('appinstalled',()=>{const b=$('#dlapp');if(b)b.hidden=true;const s=document.querySelector('.inst');if(s)s.remove()});
