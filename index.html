@@ -445,8 +445,26 @@ async function loadJobs(){
    if(view==='jobs'||view==='home')render();} return}catch(e){}}}
 
 /* ---------- countdown ---------- */
-let TRIP=store.get('trip',null), tripEdit=false;
 const tripOk=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'');
+function readTrip(){
+ const local=store.get('trip',null);
+ let backup;
+ try {
+  const value=document.cookie.split('; ').find(c=>c.startsWith('ht_trip_backup='));
+  if(value)backup=JSON.parse(decodeURIComponent(value.slice('ht_trip_backup='.length)));
+ } catch {}
+ if(!tripOk(local?.date))return tripOk(backup?.date)?backup:null;
+ return tripOk(backup?.date)&&backup.savedAt>(local.savedAt||0)?backup:local;
+}
+let TRIP=readTrip(), tripEdit=false;
+function saveTrip(date){
+ if(!tripOk(date))return;
+ TRIP={date,savedAt:Date.now()};
+ store.set('trip',TRIP);
+ try {
+  document.cookie='ht_trip_backup='+encodeURIComponent(JSON.stringify(TRIP))+'; Path=/; Max-Age=34560000; SameSite=Lax; Secure';
+ } catch {}
+}
 function tripDays(){if(!TRIP||!tripOk(TRIP.date))return null;
  const[y,m,d]=TRIP.date.split('-').map(Number);const a=new Date(y,m-1,d),n=new Date();
  return Math.round((a-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5)}
@@ -837,9 +855,15 @@ document.addEventListener('click',e=>{
  if(t.hasAttribute('data-tripshare')){tripShare();return}
  const ov=t.closest('.shov'); if(ov)ov.remove();
 },true);
+document.addEventListener('change',e=>{
+ if(e.target.id==='td' && tripOk(e.target.value)){
+  tripEdit=true;
+  saveTrip(e.target.value);
+ }
+});
 document.addEventListener('submit',e=>{const f=e.target.closest('#tf'); if(!f)return; e.preventDefault();
  const v=$('#td').value; if(!tripOk(v))return;
- TRIP={date:v}; store.set('trip',TRIP); tripEdit=false; render(); scrollTo(0,0)});
+ saveTrip(v); tripEdit=false; render(); scrollTo(0,0)});
 function sheet(){
  const d=document.createElement('div'); d.className='sheet';
  d.innerHTML=`<div><h3>That one’s in the Arrival Kit</h3>
