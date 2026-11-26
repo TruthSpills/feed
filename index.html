@@ -63,7 +63,7 @@ main{flex:1;padding-bottom:104px}
 .hero{padding:26px 18px 18px;background:radial-gradient(120% 90% at 100% 0%,#e0457b2e,transparent 60%)}
 .kick{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 h1{font-size:34px;line-height:1.05;font-weight:900;letter-spacing:-.025em}
-h1 em{font-style:italic;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 em{font-style:italic;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .08em .14em 0;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .sub{color:var(--mut);font-size:15px;margin-top:10px;line-height:1.5}
 h2{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
  margin:26px 18px 12px;display:flex;align-items:center;gap:9px}
@@ -84,11 +84,11 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ffc27a3
 .trip{margin:0 18px 4px;padding:17px;border-radius:var(--r);border:1px solid var(--line2);
  background:radial-gradient(120% 90% at 100% 0%,#e0457b33,transparent 62%),linear-gradient(160deg,#2c1433,#1c0d20);position:relative}
 .trip .k{font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--gold)}
-.trip .big{display:flex;align-items:flex-end;gap:12px;margin-top:7px}
+.trip .big{display:flex;align-items:flex-end;gap:12px;margin-top:7px;overflow:visible}
 .trip .num{font-size:60px;line-height:.88;font-weight:900;font-style:italic;letter-spacing:-.045em;
- background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:5px}
-.trip .unit{font-size:17px;font-weight:800;line-height:1.2;padding-bottom:5px}
-.trip .unit small{display:block;color:var(--mut);font-weight:600;font-size:13.5px}
+ background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .14em .1em 0;margin-right:-.06em;display:inline-block}
+.trip .unit{font-size:17px;font-weight:800;line-height:1.4;padding-bottom:4px;overflow:visible}
+.trip .unit small{display:block;color:var(--mut);font-weight:600;font-size:13.5px;line-height:1.4}
 .trip .msg{color:#efdbd0;font-size:14.5px;margin-top:11px}
 .trip form{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:11px}
 .trip input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%;height:auto;min-height:52px;line-height:1.5;text-align:center;padding:12px 40px 12px 40px;overflow:visible;border-radius:14px;border:1px solid var(--line2);
