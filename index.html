@@ -97,7 +97,9 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ffc27a3
 /* offers */
 .offer{display:flex;gap:13px;align-items:center;background:var(--s1);border:1px solid var(--line2);
  border-radius:var(--r);padding:14px;margin-bottom:10px}
-.offer[data-go="runway"]{width:fit-content;max-width:100%;margin-inline-start:auto}
+.offer[data-go="runway"]{display:grid;width:100%;grid-template-columns:14px minmax(0,1fr) 14px;column-gap:6px;text-align:center}
+.offer[data-go="runway"] .t{grid-column:2}
+.offer[data-go="runway"] .go{grid-column:3}
 .offer .ic{width:46px;height:46px;border-radius:13px;background:#ffc27a14;display:grid;place-items:center;flex:none}
 .offer .ic svg{width:23px;height:23px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .offer .t{flex:1;min-width:0}
