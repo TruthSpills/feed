@@ -399,6 +399,9 @@ const NIGHTS=[
  {n:'EDC Thailand',d:'2026-12-18',d2:'2026-12-20',v:'Rhythm Park \u00b7 Laguna',t:'Festival',big:1},
  {n:'CircoLoco Thailand',when:'2027 \u00b7 dates to be confirmed',v:'Baba Beach Club \u00b7 Natai',t:'Festival',big:1}
 ];
+const upNights=()=>{const t=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Bangkok'}));
+ const today=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+ return NIGHTS.filter(e=>!e.d||(e.d2||e.d)>=today)};
 const NIGHT_LOCKED=['Set times and who\u2019s actually worth staying for','Festival shuttles: where they leave from and when they come back','Which afterparty follows which night','Getting home from Natai without getting stung','Ticket links and what they really cost'];
 const SAMPLE={
  t:'Riding day: easy pace, south Phuket',
@@ -653,7 +656,7 @@ V.home=()=>`<picture><source srcset="img/hackthai-cover.avif" type="image/avif">
  <h2>Nights out in Phuket</h2><div class="body">
  <button class="phot" data-go="nights"><figure><img src="img/circoloco-night.webp" alt="Red-lit stage and packed dance floor at CircoLoco Thailand" width="800" height="533" loading="lazy"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
   <span class="pc"><b>CircoLoco is coming back</b><small>Plus EDC, Afrojack and the rest of what’s on</small><i aria-hidden="true">&rsaquo;</i></span></button>
- ${NIGHTS.slice(0,3).map(evRow).join('')}
+ ${upNights().slice(0,3).map(evRow).join('')}
  <button class="btn ghost sm" data-go="nights">See what’s coming up</button></div>
  <h2>Remote jobs<span class="free-tag">Free</span></h2><div class="body">
  ${JOBS.jobs.length?`<div class="card"><span class="tag"><span class="dot"></span>${JOBS.count||JOBS.jobs.length} open roles · updated ${jd(JOBS.latestBatch)}</span>
@@ -684,7 +687,7 @@ V.tours=()=>`<picture><source srcset="img/hero-strip.avif" type="image/avif"><im
 V.nights=()=>`<figure class="nhero"><img src="img/circoloco-sunset.webp" alt="Sunset crowd beneath palm trees at CircoLoco Thailand" width="800" height="556" fetchpriority="high"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
  <div class="hero"><div class="kick">Nights out</div><h1>What’s <em>on.</em></h1>
  <p class="sub">The club nights, beach parties and festival weekends worth planning a trip around.</p></div>
- <h2>Coming up</h2><div class="body">${NIGHTS.map(evRow).join('')}
+ <h2>Coming up</h2><div class="body">${upNights().map(evRow).join('')}
  <p class="note" style="margin:14px 2px 0">Dates come from the venues and promoters. Always check the official page before you book flights around one.</p></div>
  <h2>The big two</h2><div class="body">
  <div class="feat"><figure><img src="img/circoloco-night.webp" alt="Red-lit stage and packed dance floor at CircoLoco Thailand" width="800" height="533" loading="lazy"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
