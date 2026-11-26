@@ -661,7 +661,7 @@ V.home=()=>`<picture><source srcset="img/hackthai-cover.avif" type="image/avif">
  <h2>Remote jobs<span class="free-tag">Free</span></h2><div class="body">
  ${JOBS.jobs.length?`<div class="card"><span class="tag"><span class="dot"></span>${JOBS.count||JOBS.jobs.length} open roles · updated ${jd(JOBS.latestBatch)}</span>
   ${JOBS.jobs.slice(0,2).map(j=>`<h3 style="margin-top:8px">${esc(j.title)}</h3><div class="co" style="color:var(--gold);font-weight:700;font-size:13.5px">${esc(j.company)}${j.salary?' · '+esc(j.salary.split(' /')[0]):''}</div>`).join('')}
-  <button class="btn ghost sm" style="margin-top:13px" data-go="jobs">See all ${JOBS.jobs.length} jobs</button></div>`
+  <button class="btn ghost sm" style="margin-top:13px" data-go="jobs">See this week\u2019s jobs</button></div>`
   :'<div class="card"><p>Loading this week’s remote jobs…</p></div>'}</div>
  <h2>What’s in the full kit</h2><div class="body">
  ${TEASE.slice(0,3).map(([g,items])=>grpBlock(g,items.slice(0,3))).join('')}
@@ -709,11 +709,13 @@ V.jobs=()=>{const L=JOBS.jobs||[];
  <h1>Remote <em>jobs.</em></h1><p class="sub">Hand-picked remote roles you can do from Phuket. Updated every week.</p></div>
  <div class="body">${L.length?`<div style="font-size:13px;font-weight:800;color:var(--gold);margin:4px 2px 14px">
   <span class="dot"></span>${L.length} open roles · updated ${jd(JOBS.latestBatch)}</div>`+
-  L.map(j=>`<div class="job"><h3 style="font-size:16px;font-weight:800;line-height:1.3">${esc(j.title)}</h3>
+  L.slice(0,2).map(j=>`<div class="job"><h3 style="font-size:16px;font-weight:800;line-height:1.3">${esc(j.title)}</h3>
    <div class="co">${esc(j.company)}</div>
    <div class="tg"><span>${esc(j.category||'')}</span><span>${esc(j.level||'')}</span></div>
    ${j.salary?`<div class="sal">${esc(j.salary)}</div>`:'<div class="sal un">Salary not listed</div>'}
    <a class="btn ghost sm" style="margin-top:12px" href="${esc(j.url)}" target="_blank" rel="noopener">View job</a></div>`).join('')
+  +(L.length>2?`<button class="lock" data-lock style="margin-top:4px"><span class="ln">+${L.length-2} more remote roles, with links, inside the kit</span><span class="pad">${ic('lock')}</span></button>
+  ${buyBand('Every remote job, every week','The full list with apply links, updated as new roles come in \u2014 plus the rest of the kit.')}`:'')
   :'<div class="card"><p>Loading jobs… if this stays here, check your connection.</p></div>'}
  <p class="note" style="margin:14px 2px 0">Roles are posted by the companies themselves. Always apply on their own page, and never pay anyone to apply.</p></div>
  ${foot()}`};
