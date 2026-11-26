@@ -239,6 +239,11 @@ footer{padding:22px 18px 10px;color:var(--dim);font-size:12px;text-align:center;
 </style></head><body>
 <div class="wrap">
 <header><button class="hback" id="hback" aria-label="Back" hidden>&lsaquo;</button><img class="logo" src="img/logo.webp" alt="Hack Thai Phuket" width="175" height="180"><span class="free">Free</span><button class="dlapp" id="dlapp" type="button">Download app</button></header>
+<aside id="creator-choice" class="body" hidden aria-label="Creator credit">
+ <p>Remember who shared Hack Thai? Allow a 7-day cookie so the creator can earn commission if you buy later.</p>
+ <button type="button" class="btn ghost sm" id="creator-allow">Remember creator</button>
+ <button type="button" class="btn ghost sm" id="creator-skip">Skip</button>
+</aside>
 <main id="main"></main>
 </div>
 <nav><div class="inner" id="nav"></div></nav>
@@ -302,14 +307,58 @@ const ASKS=[
  {ic:'glove',n:'Train at Ludus',d:'Muay Thai in Chalong. Tell me how long you want to train.',msg:'Hi Truth, I’d like to ask about training at Ludus.'}
 ];
 
+const creatorCookie = 'ht_creator';
+const creditWindow = 7 * 24 * 60 * 60 * 1000;
+const referralPattern = /^[a-zA-Z0-9_-]{1,32}$/;
+const incomingCode = new URLSearchParams(location.search).get('ref');
+let visitCode = incomingCode && referralPattern.test(incomingCode) ? incomingCode : null;
+const visitExpires = Date.now() + creditWindow;
+function savedCreator() {
+ try {
+  const value = document.cookie.split('; ').find(part => part.startsWith(creatorCookie + '='));
+  if (!value) return null;
+  const [code, expires] = value.slice(creatorCookie.length + 1).split('.');
+  return referralPattern.test(code) && Number(expires) > Date.now() ? code : null;
+ } catch { return null; }
+}
+function rememberCreator() {
+ try {
+  document.cookie = creatorCookie + '=' + visitCode + '.' + visitExpires +
+   '; Path=/; Secure; SameSite=Lax; Expires=' + new Date(visitExpires).toUTCString();
+ } catch { /* The current link still works when storage is unavailable. */ }
+}
+const creatorChoice = document.getElementById('creator-choice');
+if (visitCode) {
+ if (savedCreator()) rememberCreator();
+ else creatorChoice.hidden = false;
+}
+document.getElementById('creator-allow').onclick = () => {
+ rememberCreator();
+ creatorChoice.hidden = true;
+ render();
+};
+document.getElementById('creator-skip').onclick = () => { creatorChoice.hidden = true; };
 function checkoutUrl() {
  const url = new URL(ACCESS);
  url.searchParams.set('buy', 'book');
- const ref = new URLSearchParams(location.search).get('ref');
- if (ref && /^[a-zA-Z0-9_-]{1,32}$/.test(ref)) url.searchParams.set('ref', ref);
+ const code = savedCreator() || (Date.now() < visitExpires ? visitCode : null);
+ if (code) url.searchParams.set('ref', code);
  return url.href;
 }
-const purchaseLink = '<a class="btn" href="'+checkoutUrl()+'">Get the bundle · £17</a>';
+const purchaseLink = () => '<a class="btn" data-checkout href="'+checkoutUrl()+'">Get the bundle · £17</a>';
+document.addEventListener('click', event => {
+ if (event.target.closest('[data-forget-creator]')) {
+  document.cookie = creatorCookie + '=; Path=/; Secure; SameSite=Lax; Max-Age=0';
+  visitCode = null;
+  const current = new URL(location.href);
+  current.searchParams.delete('ref');
+  history.replaceState(history.state, '', current.href);
+  render();
+  return;
+ }
+ const link = event.target.closest('a[data-checkout]');
+ if (link) link.href = checkoutUrl();
+});
 const memberLink = '<a class="btn ghost sm" href="'+ACCESS+'?product=map">Already purchased? Open my guide</a>';
 /* ---------- free entries ---------- */
 const FREEBIES=[
@@ -463,13 +512,13 @@ addEventListener('appinstalled',()=>{const b=$('#dlapp');if(b)b.hidden=true;cons
 function installSheet(){
  const iosShare='<svg viewBox="0 0 24 24" style="width:17px;height:17px;vertical-align:-3px;stroke:var(--gold);fill:none;stroke-width:2"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
  const ios=`<div class="os${IS_IOS?' mine':''}"><h4>iPhone${IS_IOS?'<small>Your phone</small>':''}</h4><ol>
-  <li>Open <b>hackthai.com</b> in <b>Safari</b>.</li>
+  <li>Open <b>this link</b> in <b>Safari</b>.</li>
   <li>Tap the <b>Share</b> button ${iosShare} at the bottom of the screen.</li>
   <li>Scroll down and tap <b>Add to Home Screen</b>.</li>
   <li>Tap <b>Add</b> in the top right. Hack Thai is now on your home screen like an app.</li></ol></div>`;
  const and=`<div class="os${IS_ANDROID?' mine':''}"><h4>Android${IS_ANDROID?'<small>Your phone</small>':''}</h4>
   ${DEFER_PROMPT?'<button class="btn" data-doinstall>Install Hack Thai</button>':''}<ol>
-  <li>Open <b>hackthai.com</b> in <b>Chrome</b>.</li>
+  <li>Open <b>this link</b> in <b>Chrome</b>.</li>
   <li>Tap the <b>⋮</b> menu in the top right.</li>
   <li>Tap <b>Install app</b> or <b>Add to Home screen</b>.</li>
   <li>Tap <b>Install</b>. Hack Thai is now on your home screen like an app.</li></ol></div>`;
@@ -522,7 +571,7 @@ const offerRow=o=>`<a class="offer" href="${o.u}" target="_blank" rel="noopener 
 const askRow=a=>`<a class="offer" href="${WA}?text=${encodeURIComponent(a.msg)}" target="_blank" rel="noopener"><span class="ic">${ic(a.ic)}</span>
  <span class="t"><b>${esc(a.n)}</b><small>${esc(a.d)}</small></span><span class="go">&rsaquo;</span></a>`;
 const buyBand=(t,p)=>`<div class="buy"><b>${esc(t)}</b><p>${esc(p)}</p>
- ${purchaseLink}<div class="price">One payment · Arrival Kit and Island Map</div>${memberLink}</div>`;
+ ${purchaseLink()}<div class="price">One payment · Arrival Kit and Island Map</div>${memberLink}</div>`;
 
 const V={};
 V.home=()=>`<picture><source srcset="img/hackthai-cover.avif" type="image/avif"><img class="cover" src="img/hackthai-cover.webp" alt="Hack Thai Phuket — land like you're a local" width="900" height="450" fetchpriority="high"></picture>
@@ -627,7 +676,8 @@ V.sos=()=>`<div class="hero"><div class="kick">Emergency<span class="free-tag">A
 
 function foot(){return `<footer>Hack Thai by Truth Spills · Phuket<br>
  Some links are affiliate links — they cost you nothing extra.<br>
- <a href="${IG}" target="_blank" rel="noopener" style="color:var(--gold)">@truthspillsmentor</a></footer>`}
+ <a href="${IG}" target="_blank" rel="noopener" style="color:var(--gold)">@truthspillsmentor</a>
+ ${savedCreator() ? '<br><button type="button" class="btn ghost sm" data-forget-creator>Forget saved creator</button>' : ''}</footer>`}
 
 const TABS=[['home','Home','home'],['tours','Trips','tour'],['nights','Nights','night'],['jobs','Jobs','job'],['guide','Guide','book'],['sos','Help','sos']];
 function render(){
@@ -675,7 +725,7 @@ function sheet(){
  const d=document.createElement('div'); d.className='sheet';
  d.innerHTML=`<div><h3>That one’s in the Arrival Kit</h3>
   <p>66 pages of what actually works in Phuket — the scams, the real prices, the beaches worth the drive, and a clickable island map. Written by someone who lives here.</p>
-  ${purchaseLink}
+  ${purchaseLink()}
   <p>One payment for the Arrival Kit and Island Map.</p>${memberLink}<div class="row"><button class="btn ghost" data-close>Keep looking</button></div></div>`;
  d.addEventListener('click',ev=>{if(ev.target===d||ev.target.closest('[data-close]'))d.remove()});
  document.body.appendChild(d);
