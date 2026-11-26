@@ -61,7 +61,7 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ffc27a3
 .trip .unit small{display:block;color:var(--mut);font-weight:600;font-size:13.5px}
 .trip .msg{color:#efdbd0;font-size:14.5px;margin-top:11px}
 .trip form{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:11px}
-.trip input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%;height:50px;line-height:26px;text-align:center;padding:12px 14px;border-radius:14px;border:1px solid var(--line2);
+.trip input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%;height:auto;min-height:52px;line-height:1.5;text-align:center;padding:12px 40px 12px 40px;overflow:visible;border-radius:14px;border:1px solid var(--line2);
  background:#0f0610;color:var(--tx);font:inherit;font-size:16px;color-scheme:dark}
 .trip .edit{position:absolute;top:13px;right:13px;font-size:13px;font-weight:700;color:var(--dim);padding:5px 7px}
 /* offers */
@@ -189,7 +189,8 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ffc27a3
 .shov .x svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:2.1}
 .trip .share{margin-top:12px;width:100%}
 .trip input[type=date]::-webkit-date-and-time-value{text-align:center;margin:0}
-.trip input[type=date]::-webkit-datetime-edit{padding:0}
+.trip input[type=date]::-webkit-datetime-edit{padding:0;overflow:visible;line-height:1.5}
+.trip input[type=date]::-webkit-datetime-edit-fields-wrapper{padding:0;overflow:visible}
 .trip input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.8)}
 /* nav */
 nav{position:fixed;bottom:0;left:0;right:0;z-index:40;background:rgba(21,10,23,.95);
