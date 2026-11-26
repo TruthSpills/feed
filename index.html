@@ -239,11 +239,6 @@ footer{padding:22px 18px 10px;color:var(--dim);font-size:12px;text-align:center;
 </style></head><body>
 <div class="wrap">
 <header><button class="hback" id="hback" aria-label="Back" hidden>&lsaquo;</button><img class="logo" src="img/logo.webp" alt="Hack Thai Phuket" width="175" height="180"><span class="free">Free</span><button class="dlapp" id="dlapp" type="button">Download app</button></header>
-<aside id="creator-choice" class="body" hidden aria-label="Creator credit">
- <p>Remember who shared Hack Thai? Save your creator on this device with no time limit so they can earn commission when you buy. You can remove this anytime.</p>
- <button type="button" class="btn ghost sm" id="creator-allow">Remember creator</button>
- <button type="button" class="btn ghost sm" id="creator-skip">Skip</button>
-</aside>
 <main id="main"></main>
 </div>
 <nav><div class="inner" id="nav"></div></nav>
@@ -349,18 +344,11 @@ function updateInstallLink() {
  const code = savedCreator();
  document.querySelector('link[rel="manifest"]').href = code ? 'creator-' + code + '.webmanifest' : 'manifest.webmanifest';
 }
-const creatorChoice = document.getElementById('creator-choice');
-const originalCreator = savedCreator() || legacyCreator() || validCreator(visitCode);
-if (savedCreator()) storeCreator(savedCreator());
-else if (originalCreator) creatorChoice.hidden = false;
+if (creatorRecord() !== 'off') {
+ const firstCreator = savedCreator() || legacyCreator() || validCreator(visitCode);
+ if (firstCreator) storeCreator(firstCreator);
+}
 updateInstallLink();
-document.getElementById('creator-allow').onclick = () => {
- if (originalCreator) storeCreator(savedCreator() || originalCreator);
- updateInstallLink();
- creatorChoice.hidden = true;
- render();
-};
-document.getElementById('creator-skip').onclick = () => { creatorChoice.hidden = true; };
 function checkoutUrl() {
  const url = new URL(ACCESS);
  url.searchParams.set('buy', 'book');
