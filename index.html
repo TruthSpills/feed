@@ -1,1 +1,590 @@
-<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>feed</title>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#150a17">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hack Thai">
+<meta name="description" content="Land like you're a local. Phuket beaches, food, scams, transport and trips — plus remote jobs you can do from the island.">
+<title>Hack Thai · Phuket</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23150a17'/%3E%3Ctext x='32' y='43' font-family='system-ui' font-size='30' font-weight='900' font-style='italic' fill='%23ffc27a' text-anchor='middle'%3Eht%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#150a17;--s1:#1e0f22;--s2:#2a1430;--line:#ffffff12;--line2:#2a1a2e;
+--tx:#faf0e0;--mut:#8c7a7e;--dim:#6b5a60;--gold:#ffc27a;--ok:#5fd6a0;
+--g:linear-gradient(100deg,#ff8a4c,#e0457b 52%,#a957f0);--r:18px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,a{font:inherit;color:inherit;border:0;background:none;cursor:pointer;text-decoration:none}
+.wrap{max-width:460px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+header{position:sticky;top:0;z-index:30;background:rgba(21,10,23,.92);backdrop-filter:blur(18px);
+ -webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);
+ padding:calc(env(safe-area-inset-top,0px) + 12px) 18px 12px;display:flex;align-items:center;gap:12px}
+.hback{width:32px;height:32px;margin:-4px 0 -4px -6px;flex:none;display:flex;align-items:center;
+ justify-content:center;font-size:27px;line-height:1;font-weight:700;color:var(--gold);
+ border-radius:99px;background:#ffffff0d}
+.hback[hidden]{display:none}
+.mark{font-size:19px;font-weight:900;font-style:italic;letter-spacing:-.02em}
+.mark i{font-style:italic;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+header .free{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+ color:var(--gold);border:1px solid #ffc27a4d;padding:4px 9px;border-radius:99px}
+main{flex:1;padding-bottom:104px}
+.hero{padding:26px 18px 18px;background:radial-gradient(120% 90% at 100% 0%,#e0457b2e,transparent 60%)}
+.kick{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+h1{font-size:34px;line-height:1.05;font-weight:900;letter-spacing:-.025em}
+h1 em{font-style:italic;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:15px;margin-top:10px;line-height:1.5}
+h2{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+ margin:26px 18px 12px;display:flex;align-items:center;gap:9px}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ffc27a33,transparent)}
+.body{padding:0 18px}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:13px 18px;
+ border-radius:14px;background:var(--g);color:#1b0b20;font-weight:800;font-size:15.5px;width:100%;text-align:center}
+.btn:active{transform:scale(.985)}
+.btn.ghost{background:none;border:1px solid var(--gold);color:var(--gold)}
+.btn.sm{min-height:46px;font-size:14.5px}
+.btn svg{width:19px;height:19px;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card{background:var(--s1);border:1px solid var(--line2);border-radius:var(--r);padding:16px;margin-bottom:11px}
+.card h3{font-size:16.5px;line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.card p{color:#e2cfc4;font-size:14.5px;margin-top:7px;line-height:1.55}
+.card .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+ color:var(--gold);background:#ffc27a14;padding:4px 9px;border-radius:6px;margin-bottom:9px}
+/* countdown */
+.trip{margin:0 18px 4px;padding:17px;border-radius:var(--r);border:1px solid var(--line2);
+ background:radial-gradient(120% 90% at 100% 0%,#e0457b33,transparent 62%),linear-gradient(160deg,#2c1433,#1c0d20);position:relative}
+.trip .k{font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--gold)}
+.trip .big{display:flex;align-items:flex-end;gap:12px;margin-top:7px}
+.trip .num{font-size:60px;line-height:.88;font-weight:900;font-style:italic;letter-spacing:-.045em;
+ background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:5px}
+.trip .unit{font-size:17px;font-weight:800;line-height:1.2;padding-bottom:5px}
+.trip .unit small{display:block;color:var(--mut);font-weight:600;font-size:13.5px}
+.trip .msg{color:#efdbd0;font-size:14.5px;margin-top:11px}
+.trip form{display:grid;gap:10px;margin-top:11px}
+.trip input[type=date]{width:100%;min-height:50px;padding:12px 14px;border-radius:14px;border:1px solid var(--line2);
+ background:#0f0610;color:var(--tx);font:inherit;font-size:16px;color-scheme:dark}
+.trip .edit{position:absolute;top:13px;right:13px;font-size:13px;font-weight:700;color:var(--dim);padding:5px 7px}
+/* offers */
+.offer{display:flex;gap:13px;align-items:center;background:var(--s1);border:1px solid var(--line2);
+ border-radius:var(--r);padding:14px;margin-bottom:10px}
+.offer .ic{width:46px;height:46px;border-radius:13px;background:#ffc27a14;display:grid;place-items:center;flex:none}
+.offer .ic svg{width:23px;height:23px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.offer .t{flex:1;min-width:0}
+.offer b{display:block;font-size:15.5px;font-weight:800;line-height:1.3}
+.offer small{display:block;color:var(--mut);font-size:13px;margin-top:3px;line-height:1.45}
+.offer .go{color:var(--gold);font-size:22px;flex:none;font-weight:300}
+/* locked */
+.lock{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--s1);
+ border:1px solid var(--line2);border-radius:14px;padding:13px 14px;margin-bottom:8px}
+.lock .ln{flex:1;min-width:0;font-size:15px;font-weight:700;line-height:1.35;color:#d8c6bd}
+.lock .pad{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:8px;background:#ffffff0d}
+.lock .pad svg{width:14px;height:14px;stroke:var(--dim);fill:none;stroke-width:2}
+.grp{margin-bottom:18px}
+.grp .gh{font-size:13px;font-weight:800;color:var(--gold);margin:0 0 9px 2px;letter-spacing:.02em}
+/* jobs */
+.job{background:var(--s1);border:1px solid var(--line2);border-radius:var(--r);padding:15px;margin-bottom:10px}
+.job .co{color:var(--gold);font-weight:700;font-size:13.5px;margin-top:3px}
+.job .sal{margin-top:9px;font-size:15px;font-weight:800;color:var(--tx)}
+.job .sal.un{font-size:13px;font-weight:600;color:var(--dim)}
+.job .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.job .tg span{font-size:10.5px;padding:4px 8px;border-radius:6px;background:#ffc27a14;color:var(--gold);font-weight:700}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block;margin-right:7px;vertical-align:1px}
+/* buy band */
+.buy{margin:22px 18px 0;padding:19px 17px;border-radius:var(--r);text-align:center;
+ border:1.5px solid transparent;background:linear-gradient(160deg,#3a1a40,#241128) padding-box,var(--g) border-box}
+.buy b{display:block;font-size:19px;font-weight:900;letter-spacing:-.015em}
+.buy p{color:var(--mut);font-size:14px;margin:8px 0 14px;line-height:1.5}
+.price{font-size:13px;color:var(--gold);font-weight:800;letter-spacing:.04em;margin-top:10px}
+/* sheet */
+.sheet{position:fixed;inset:0;z-index:70;background:#0a0509e8;display:flex;align-items:flex-end;
+ animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet>div{width:100%;max-width:460px;margin:0 auto;background:var(--s2);border-radius:22px 22px 0 0;
+ padding:22px 20px calc(env(safe-area-inset-bottom,0px) + 22px);animation:up .25s}
+@keyframes up{from{transform:translateY(40px)}}
+.sheet h3{font-size:20px;font-weight:900;letter-spacing:-.015em;margin-bottom:8px}
+.sheet p{color:var(--mut);font-size:14.5px;line-height:1.55;margin-bottom:16px}
+.sheet .row{display:flex;gap:10px;margin-top:10px}
+.sheet .row .btn{flex:1}
+/* brand + nights + sample */
+.cover{width:100%;height:auto;display:block;border-radius:var(--r);border:1px solid var(--line);margin:0 0 4px}
+.strip{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);margin:14px 0 0}
+.ev{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 13px;
+ background:var(--s1);border:1px solid var(--line2);border-radius:14px;margin-bottom:8px}
+.ev .ed{flex:none;width:62px;font-size:11px;font-weight:800;color:var(--gold);line-height:1.25}
+.ev .et{flex:1;min-width:0}
+.ev .et b{display:block;font-size:14.5px;font-weight:800;line-height:1.25}
+.ev .et small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.ev .pad svg{width:16px;height:16px;stroke:var(--dim);fill:none;stroke-width:2}
+.samp{background:var(--s1);border:1px solid var(--line2);border-radius:var(--r);padding:16px}
+.samp .sh{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.samp .sh .ic{flex:none;width:38px;height:38px;border-radius:11px;background:var(--g);
+ display:flex;align-items:center;justify-content:center}
+.samp .sh .ic svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.9}
+.samp h3{font-size:16px;font-weight:800;line-height:1.3}
+.samp .sh p{color:var(--gold);font-size:12.5px;font-weight:700;margin-top:3px}
+.samp h4{font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;
+ letter-spacing:.07em;margin:16px 0 6px}
+.samp .sp{font-size:14px;color:#cdb9c2;line-height:1.55}
+.steps{margin-top:12px;border-left:2px solid var(--line2);padding-left:13px}
+.steps .st{margin-bottom:11px}
+.steps .st span{display:block;font-size:11px;font-weight:800;color:var(--gold);
+ letter-spacing:.04em;margin-bottom:2px}
+.steps .st p{font-size:13.5px;color:#cdb9c2;line-height:1.5}
+.bring{display:flex;flex-wrap:wrap;gap:6px}
+.bring span{font-size:12px;background:var(--s2);border:1px solid var(--line2);
+ border-radius:99px;padding:5px 10px;color:#d8c6cd}
+.wheelc{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:15px 14px;
+ background:linear-gradient(135deg,#2a1430,#1e0f22);border:1px solid #4a2a52;border-radius:var(--r)}
+.wheelc .wi{flex:none;width:44px;height:44px;border-radius:13px;background:var(--g);
+ display:flex;align-items:center;justify-content:center}
+.wheelc .wi svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.7}
+.wheelc .wt{flex:1;min-width:0}
+.wheelc .wt b{display:block;font-size:15px;font-weight:800}
+.wheelc .wt small{display:block;color:var(--mut);font-size:12.5px;line-height:1.45;margin-top:4px}
+.soon{display:inline-block;margin-left:7px;font-size:9.5px;font-weight:800;letter-spacing:.07em;
+ text-transform:uppercase;color:var(--gold);border:1px solid #5a3a2a;border-radius:99px;
+ padding:2px 7px;vertical-align:2px}
+.wheelc .pad svg{width:16px;height:16px;stroke:var(--dim);fill:none;stroke-width:2}
+.phot{display:block;width:100%;text-align:left;background:var(--s1);border:1px solid var(--line2);
+ border-radius:var(--r);overflow:hidden;margin-bottom:10px}
+.phot figure{position:relative;margin:0}
+.phot figure img{display:block;width:100%;height:auto}
+.phot figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 7px;font-size:9.5px;
+ font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#e9d4dd;
+ background:linear-gradient(transparent,#140a16e0)}
+.phot .pc{display:flex;align-items:center;gap:10px;padding:13px 14px;flex-wrap:wrap}
+.phot .pc b{flex:1 1 100%;font-size:15.5px;font-weight:800;line-height:1.3}
+.phot .pc small{flex:1;color:var(--mut);font-size:12.5px;line-height:1.4}
+.phot .pc i{flex:none;font-style:normal;color:var(--gold);font-size:20px;line-height:1}
+/* event photos */
+.nhero{position:relative;margin:0 18px 4px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.nhero img{display:block;width:100%;height:auto}
+.nhero figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 13px 9px;font-size:10.5px;
+ font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#e9d4dd;
+ background:linear-gradient(transparent,#140a16e8)}
+.feat{background:var(--s1);border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
+.feat figure{position:relative;margin:0}
+.feat figure img{display:block;width:100%;height:auto}
+.feat figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 8px;font-size:10px;
+ font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#e9d4dd;
+ background:linear-gradient(transparent,#140a16e0)}
+.feat .fb{padding:14px}
+.feat .fb h3{font-size:17px;font-weight:900;line-height:1.25}
+.feat .fb .fw{color:var(--gold);font-size:12.5px;font-weight:800;margin-top:3px}
+.feat .fb p{color:#cdb9c2;font-size:13.5px;line-height:1.5;margin-top:8px}
+/* share overlay */
+.shov{position:fixed;inset:0;z-index:90;background:#0b040cf7;overflow-y:auto;
+ -webkit-overflow-scrolling:touch;overscroll-behavior:contain;text-align:center;
+ padding:58px 18px calc(env(safe-area-inset-bottom,0px) + 120px)}
+.shov img{display:block;margin:0 auto 16px;max-height:46vh;max-width:min(100%,250px);width:auto;
+ border-radius:16px;box-shadow:0 20px 60px #000c;-webkit-touch-callout:default}
+.shov p{margin:14px auto 0;color:var(--mut);font-size:13.5px;line-height:1.5;max-width:30ch}
+.shov p b{color:var(--tx)}
+.shov .row{width:min(100%,320px);margin:0 auto;display:flex;gap:10px}
+.shov .row .btn{flex:1 1 0;min-height:52px;min-width:0;padding:11px 10px}
+.shov .x{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;
+ width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+ background:#ffffff14;border-radius:99px;z-index:2}
+.shov .x svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:2.1}
+.trip .share{margin-top:12px;width:100%}
+/* nav */
+nav{position:fixed;bottom:0;left:0;right:0;z-index:40;background:rgba(21,10,23,.95);
+ backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--line2)}
+nav .inner{max-width:460px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);
+ padding:9px 6px calc(env(safe-area-inset-bottom,0px) + 11px)}
+nav button{display:flex;flex-direction:column;align-items:center;gap:4px;color:#5a4a52;font-size:9.5px;font-weight:600}
+nav svg{width:21px;height:21px}
+nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav button.on{color:var(--gold)}
+.note{color:var(--dim);font-size:12.5px;line-height:1.55;margin:16px 18px 0}
+.free-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+ color:var(--ok);background:#5fd6a018;padding:3px 8px;border-radius:5px;margin-left:7px}
+footer{padding:22px 18px 10px;color:var(--dim);font-size:12px;text-align:center;line-height:1.6}
+</style></head><body>
+<div class="wrap">
+<header><button class="hback" id="hback" aria-label="Back" hidden>&lsaquo;</button><span class="mark">HACK <i>THAI</i></span><span class="free">Free</span></header>
+<main id="main"></main>
+</div>
+<nav><div class="inner" id="nav"></div></nav>
+<script>
+let DL=null;
+try{if(window.claude&&claude.use)claude.use('downloads').then(d=>{DL=d}).catch(()=>{})}catch(e){}
+let CARD_BLOB=null;
+const SHARE_TAG='hackthai.com · @truthspillsmentor';
+const WA='https://wa.me/447903845563', IG='https://ig.me/m/truthspillsmentor',
+      BUY='https://www.truth-spills.com/phuket',
+      FEED=['jobs.json',
+            'https://raw.githubusercontent.com/TruthSpills/feed/main/jobs.json',
+            'https://cdn.jsdelivr.net/gh/TruthSpills/feed@main/jobs.json'];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem('ht_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+             set(k,v){try{localStorage.setItem('ht_'+k,JSON.stringify(v))}catch(e){}}};
+const I={home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>',
+ tour:'<circle cx="12" cy="12" r="9"/><polygon points="16 8 13 15 8 16 10 10"/>',
+ job:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/>',
+ book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+ sos:'<circle cx="12" cy="12" r="9"/><line x1="12" y1="7.5" x2="12" y2="13"/><line x1="12" y1="16.5" x2="12" y2="16.6"/>',
+ lock:'<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+ sim:'<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8.5" y="11" width="7" height="6" rx="1"/>',
+ boat:'<path d="M3 17c2.5 2 4 2 6 0s3.5-2 6 0 4 2 6 0"/><path d="M5 14 7 7h10l2 7"/><path d="M12 7V3"/>',
+ glove:'<path d="M7 11V6.5a2.5 2.5 0 0 1 5 0V10"/><path d="M12 10V7.5a2.5 2.5 0 0 1 5 0V14a6 6 0 0 1-6 6H9a5 5 0 0 1-5-5v-3a2 2 0 0 1 4 0"/>',
+ wave:'<path d="M2 8c2.5-2.5 5-2.5 7.5 0s5 2.5 7.5 0 3-2 5 0"/><path d="M2 14c2.5-2.5 5-2.5 7.5 0s5 2.5 7.5 0 3-2 5 0"/>',
+ car:'<path d="M5 17h14M4 17v-4l2-5h12l2 5v4"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/>',
+ chat:'<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.6-.8L3 21l1.9-5.4A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/>',
+ cal:'<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+ star:'<polygon points="12 3 14.6 9 21 9.6 16 14 17.5 20.5 12 17 6.5 20.5 8 14 3 9.6 9.4 9"/>'};
+I.x='<path d="M18 6 6 18M6 6l12 12"/>';
+I.down='<path d="M12 4v12"/><path d="m7 12 5 5 5-5"/><path d="M5 20h14"/>';
+I.night='<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>';
+I.wheel='<circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/>';
+I.bike='<circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17 10 7h4l2 4h2.5M9 7h5"/>';
+const ic=(k,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24">${I[k]||''}</svg>`;
+
+/* ---------- affiliate offers (tracking links issued to Truth Spills) ---------- */
+const GYG=u=>u+'&utm_medium=online_publisher';
+const OFFERS=[
+ {ic:'sim',n:'Holafly eSIM for Thailand',d:'Set it up before take-off and skip the airport SIM queue. Use code TRUTHSPILLS at checkout.',
+  u:'https://holafly.sjv.io/c/8329002/3856277/24764'},
+ {ic:'boat',n:'Phi Phi, Maya Bay & Bamboo Island',d:'A full island day from Phuket with buffet lunch. Check pickup and park fees.',
+  u:GYG('https://www.getyourguide.com/phuket-l32123/phuket-phi-phi-and-bamboo-island-trip-with-buffet-lunch-t431461/?partner_id=NELQ0GX&cmp=hack_thai_phi_phi')},
+ {ic:'wave',n:'Phang Nga Bay sunset canoeing',d:'Sea caves, sunset and glowing plankton. Check the itinerary you pick.',
+  u:GYG('https://www.getyourguide.com/phuket-l32123/phuket-twilight-sea-canoe-highlight-glowing-plankton-t457239/?partner_id=NELQ0GX&cmp=hack_thai_sea_canoe')},
+ {ic:'glove',n:'Patong Boxing Stadium',d:'Book a seat for live Muay Thai in Patong.',
+  u:GYG('https://www.getyourguide.com/phuket-l32123/patong-boxing-stadium-muay-thai-t659075/?partner_id=NELQ0GX&cmp=hack_thai_muay_thai&referral_redirect=1')},
+ {ic:'wave',n:'Andamanda water park',d:'Phuket’s big water park. Good for a family day out of the heat.',
+  u:'https://affiliate.klook.com/sl/23DOk0u'},
+ {ic:'star',n:'Carnival Magic',d:'The night show in Kamala. Book ahead for the better seats.',
+  u:'https://affiliate.klook.com/sl/22DatQP'},
+ {ic:'star',n:'YONA Beach Club',d:'Floating beach club off Patong. Day beds go fast at weekends.',
+  u:'https://affiliate.klook.com/sl/yeAbAbi'}
+];
+const ASKS=[
+ {ic:'car',n:'Airport transfer',d:'Door to door, no taxi haggling. Message me your flight.',msg:'Hi Truth, I’d like to book an airport transfer.'},
+ {ic:'car',n:'Car or scooter hire',d:'Sorted properly, with the right paperwork.',msg:'Hi Truth, I’d like to hire a car or scooter in Phuket.'},
+ {ic:'boat',n:'Private island trip',d:'Phi Phi, James Bond island, your own boat.',msg:'Hi Truth, I’d like to arrange a private island trip.'},
+ {ic:'glove',n:'Train at Ludus',d:'Muay Thai in Chalong. Tell me how long you want to train.',msg:'Hi Truth, I’d like to ask about training at Ludus.'}
+];
+
+/* ---------- free entries ---------- */
+const FREEBIES=[
+ {t:'Fill in the free TDAC',d:'Submit your Thailand Digital Arrival Card within the three days before you arrive. If a site asks you to pay for it, close the tab — the official one is free. Use tdac.immigration.go.th and save your confirmation offline.',
+  link:['https://tdac.immigration.go.th/arrival-card/','Open the official TDAC site']},
+ {t:'Check your passport expiry',d:'Your passport needs at least six months left on the day you arrive in Thailand, and at least one blank page. Check it now so you have time to renew if you need to.'}
+];
+const NIGHTS=[
+ {n:'Timmy Trumpet',d:'2026-11-27',v:'Illuzion \u00b7 Patong',t:'Club night'},
+ {n:'Afrojack',d:'2026-12-11',v:'Illuzion \u00b7 Patong',t:'Club night'},
+ {n:'Hotel EDC Beach Party',d:'2026-12-17',v:'XANA Beach Club \u00b7 Laguna',t:'Beach party'},
+ {n:'EDC Thailand',d:'2026-12-18',d2:'2026-12-20',v:'Rhythm Park \u00b7 Laguna',t:'Festival',big:1},
+ {n:'CircoLoco Thailand',when:'2027 \u00b7 dates to be confirmed',v:'Baba Beach Club \u00b7 Natai',t:'Festival',big:1}
+];
+const NIGHT_LOCKED=['Set times and who\u2019s actually worth staying for','Festival shuttles: where they leave from and when they come back','Which afterparty follows which night','Getting home from Natai without getting stung','Ticket links and what they really cost'];
+const SAMPLE={
+ t:'Riding day: easy pace, south Phuket',
+ tag:'Rawai / Nai Harn', time:'3\u20134 hours',
+ plan:'Rawai / Nai Harn. Approximately 3\u20134 hours with generous breaks. Only appropriately licensed, insured, experienced riders. Use a car/driver for the same stops if not confident.',
+ stops:[['30\u201345 minutes','Meet at a confirmed Rawai waterfront parking/pickup pin. Check the bike before departure.'],
+  ['45\u201360 minutes','Ride to Nai Harn in daylight and stop for a beach walk; swimming is optional and condition-dependent.'],
+  ['45\u201360 minutes','Lunch at Wilson\u2019s Cafe after confirming the exact pin and opening.']],
+ before:'Confirm rental paperwork, condition and roadside contact. Save destination pins before setting off; do not handle phone while moving.',
+ change:'Wet roads, poor visibility, fatigue or uncertainty: switch to a car day. No riding through flooding; no alcohol.',
+ bring:['Charged phone and saved destination pin','Small baht notes and a payment card','Drinking water','Personal prescription medicines needed during the outing','Correct motorcycle licence/permit and insurance','Properly fitted fastened helmet','Protective jacket, trousers, gloves and closed footwear','Rental contact and condition photos; check tyres, brakes, lights and fuel before departure','Sun protection; optional towel only if a beach stay is planned']
+};
+const SOS=[['Police','191'],['Tourist Police (English)','1155'],['Ambulance and rescue','1669'],['Fire','199']];
+
+/* ---------- teaser map (titles only — no paid content in this file) ---------- */
+const TEASE=[
+ ['Before you fly',['Have your flight out ready','Save your accommodation details','Have proof of funds before immigration','Staying long term?']],
+ ['Landing at Phuket airport',['Getting out of the airport without being stung','Cash machines and what they really charge','QR codes','TAGTHAi Easy Pay']],
+ ['Where to stay',['Which area actually suits your trip','How to avoid scams','What a fair nightly rate looks like']],
+ ['Getting around',['Grab or rental','What a bike should actually cost']],
+ ['Budgeting for Phuket',['What a week really costs','Transport','Rentals and activities','Food, shopping and training']],
+ ['Don\u2019t get caught out',['Thailand scams and updates','Police checks']],
+ ['What\u2019s worth doing',['What\u2019s worth doing']],
+ ['Eat and shop',['Street food: choose your stop carefully','Choosing a stall','Markets to explore','Where locals actually eat']],
+ ['Train, fight, recover',['Your first class','Gym manners','Watch a fight','Recovery and coaching']],
+ ['Thinking of staying longer?',['Plan your first steps','Visas and the paperwork','Need a hand getting set up?']]
+];
+
+/* ---------- jobs ---------- */
+let JOBS={count:0,jobs:[],latestBatch:''};
+const jd=d=>{const p=String(d||'').split('-');const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ return p.length===3?(+p[2])+' '+M[+p[1]-1]:''};
+async function loadJobs(){
+ const c=store.get('jobs',null); if(c&&c.jobs) JOBS=c;
+ for(const u of FEED){try{const r=await fetch(u+'?t='+Math.floor(Date.now()/3e5));if(!r.ok)continue;
+   const j=await r.json(); if(j&&Array.isArray(j.jobs)&&j.jobs.length){JOBS=j;store.set('jobs',j);
+   if(view==='jobs'||view==='home')render();} return}catch(e){}}}
+
+/* ---------- countdown ---------- */
+let TRIP=store.get('trip',null), tripEdit=false;
+const tripOk=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'');
+function tripDays(){if(!TRIP||!tripOk(TRIP.date))return null;
+ const[y,m,d]=TRIP.date.split('-').map(Number);const a=new Date(y,m-1,d),n=new Date();
+ return Math.round((a-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5)}
+function tripMsg(n){return n>60?'Plenty of time. Start shaping the trip.':n>=30?'Time to lock in where you’re staying.':
+ n>=14?'Two weeks out. Get the big bookings done.':n>=7?'Final stretch — sort your eSIM and transfer.':
+ n>=2?'Almost there. Pack and screenshot your essentials.':n===1?'Tomorrow!':n===0?'Today’s the day. Welcome to Phuket.':
+ 'Make the most of it.'}
+function tripCard(){
+ const n=tripDays();
+ if(n===null||tripEdit)return `<div class="trip"><div class="k">Your trip</div>
+  <h3 style="margin:6px 0 2px;font-size:19px;font-weight:900">When do you land in Phuket?</h3>
+  <p class="msg" style="margin-top:4px">Get a live countdown and a nudge when it’s time to book things.</p>
+  <form id="tf"><input id="td" type="date" value="${TRIP&&tripOk(TRIP.date)?TRIP.date:''}" required>
+  <button class="btn" type="submit">${ic('cal')}Start my countdown</button></form></div>`;
+ if(n<-60)return '';
+ const big=n>0?n:(n===0?'Today':'Day '+(1-n));
+ const unit=n>1?'days until<small>you land in Phuket</small>':n===1?'day until<small>you land in Phuket</small>':
+   n===0?'<small>you land in Phuket</small>':'<small>in Phuket</small>';
+ return `<div class="trip"><button class="edit" data-tripedit>Edit</button><div class="k">Your trip</div>
+  <div class="big"><span class="num"${n<=0?' style="font-size:42px"':''}>${big}</span><span class="unit">${unit}</span></div>
+  <p class="msg">${esc(tripMsg(n))}</p>
+  <button class="btn ghost sm share" data-tripshare>${ic('down')}Make my countdown card</button></div>`;
+}
+
+function tripStory(){
+ const n=tripDays(), W=1080, H=1920, c=document.createElement('canvas');c.width=W;c.height=H;
+ const x=c.getContext('2d');
+ const F='-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif';
+ x.fillStyle='#150a17';x.fillRect(0,0,W,H);
+ let g=x.createRadialGradient(W,0,0,W,0,1300);g.addColorStop(0,'rgba(224,69,123,.55)');g.addColorStop(1,'rgba(224,69,123,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ g=x.createRadialGradient(0,H,0,0,H,1200);g.addColorStop(0,'rgba(139,63,209,.5)');g.addColorStop(1,'rgba(139,63,209,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ const grad=(y0,y1)=>{const q=x.createLinearGradient(0,y0,W,y1);q.addColorStop(0,'#ff8a4c');q.addColorStop(.52,'#e0457b');q.addColorStop(1,'#a957f0');return q};
+ x.textAlign='center';x.fillStyle='#ffc27a';x.font=`800 34px ${F}`;
+ try{x.letterSpacing='10px'}catch(e){}
+ x.fillText('TRUTH SPILLS',W/2,250);try{x.letterSpacing='0px'}catch(e){}
+ x.fillStyle=grad(280,400);x.font=`italic 900 150px ${F}`;x.fillText('HACK THAI',W/2,400);
+ const draw=()=>{
+  const big=n>0?String(n):(n===0?'TODAY':'DAY '+(1-n));
+  x.textAlign='center';
+  x.fillStyle=grad(1120,1360);x.font=`italic 900 ${big.length>3?230:330}px ${F}`;x.fillText(big,W/2,1360);
+  x.fillStyle='#fff4e8';x.font=`900 72px ${F}`;
+  const l1=n>1?'DAYS UNTIL I LAND':n===1?'DAY UNTIL I LAND':n===0?'I LAND IN':'IN PHUKET';
+  x.fillText(l1,W/2,1470);if(n>=0)x.fillText('IN PHUKET',W/2,1550);
+  x.fillStyle='#ffd8b8';x.font=`600 44px ${F}`;x.fillText('Land like you\u2019re a local.',W/2,1636);
+  x.fillStyle='#d2b3c3';x.font=`700 38px ${F}`;x.fillText(SHARE_TAG,W/2,1700);
+  try{c.toBlob(b=>{CARD_BLOB=b},'image/png')}catch(e){}
+  return c.toDataURL('image/png');
+ };
+ return new Promise(res=>{
+  const im=new Image();
+  im.onload=()=>{
+   const w=880, hh=w*im.naturalHeight/im.naturalWidth, cy=500+hh/2;
+   x.save();x.translate(W/2,cy);x.rotate(-3*Math.PI/180);
+   x.shadowColor='rgba(0,0,0,.6)';x.shadowBlur=60;x.shadowOffsetY=24;
+   const r=28;x.beginPath();x.moveTo(-w/2+r,-hh/2);
+   x.arcTo(w/2,-hh/2,w/2,hh/2,r);x.arcTo(w/2,hh/2,-w/2,hh/2,r);
+   x.arcTo(-w/2,hh/2,-w/2,-hh/2,r);x.arcTo(-w/2,-hh/2,w/2,-hh/2,r);x.closePath();
+   x.fillStyle='#000';x.fill();x.shadowColor='transparent';x.clip();
+   x.drawImage(im,-w/2,-hh/2,w,hh);x.restore();
+   res(draw());
+  };
+  im.onerror=()=>res(draw());
+  im.src='img/hackthai-cover.webp';
+ });
+}
+async function tripShare(){
+ const url=await tripStory();
+ const ov=document.createElement('div');ov.className='shov';
+ ov.innerHTML=`<button class="x" data-shclose="1" aria-label="Close">${ic('x')}</button>
+  <img src="${url}" alt="Your Hack Thai countdown">
+  <div class="row"><a class="btn" id="shsave" download="hack-thai-countdown.png" href="${url}">${ic('down')}Save image</a></div>
+  <p>Then post it to your story and tag <b>@truthspillsmentor</b>.</p>`;
+ document.body.appendChild(ov);ov.scrollTop=0;
+ ov.querySelector('#shsave').addEventListener('click',async ev=>{
+  if(!DL)return;                       /* plain download link handles it off-platform */
+  ev.preventDefault();
+  const note=ov.querySelector('p');
+  try{const data=CARD_BLOB||await (await fetch(url)).blob();
+   await DL.save({filename:'hack-thai-countdown.png',data});
+   note.innerHTML='Saved. Post it to your story and tag <b>@truthspillsmentor</b>.';
+  }catch(err){
+   note.textContent=(err&&err.code==='declined')?'No problem \u2014 tap Save image when you\u2019re ready.'
+    :'Couldn\u2019t save it here. Open hackthai.com in your browser and try again.';
+  }
+ });
+}
+/* ---------- views ---------- */
+let view='home';
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function evWhen(e){
+ if(e.when)return e.when;
+ const p=e.d.split('-').map(Number), a=new Date(p[0],p[1]-1,p[2]);
+ const MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ let s=DOW[a.getDay()]+' '+a.getDate()+' '+MO[a.getMonth()];
+ if(e.d2){const q=e.d2.split('-').map(Number),b=new Date(q[0],q[1]-1,q[2]);s=a.getDate()+'\u2013'+b.getDate()+' '+MO[b.getMonth()]}
+ return s;
+}
+const evRow=e=>`<button class="ev" data-lock><span class="ed">${esc(evWhen(e))}</span>
+ <span class="et"><b>${esc(e.n)}</b><small>${esc(e.v)} \u00b7 ${esc(e.t)}</small></span>
+ <span class="pad">${ic('lock')}</span></button>`;
+function sampleCard(){const s=SAMPLE;
+ return `<div class="samp"><div class="sh"><span class="ic">${ic('bike')}</span>
+  <div><h3>${esc(s.t)}</h3><p>${esc(s.tag)} \u00b7 ${esc(s.time)}</p></div></div>
+  <p class="sp">${esc(s.plan)}</p>
+  <div class="steps">${s.stops.map(x=>`<div class="st"><span>${esc(x[0])}</span><p>${esc(x[1])}</p></div>`).join('')}</div>
+  <h4>Before you go</h4><p class="sp">${esc(s.before)}</p>
+  <h4>If plans change</h4><p class="sp">${esc(s.change)}</p>
+  <h4>What to take</h4><div class="bring">${s.bring.map(b=>`<span>${esc(b)}</span>`).join('')}</div></div>`}
+const grpBlock=(g,items)=>{const solo=items.length===1&&items[0]===g;
+ return `<div class="grp">${solo?'':`<div class="gh">${esc(g)}</div>`}
+  ${items.map(t=>`<button class="lock" data-lock><span class="ln">${esc(t)}</span><span class="pad">${ic('lock')}</span></button>`).join('')}</div>`};
+const wheelCard=()=>`<button class="wheelc" data-lock><span class="wi">${ic('wheel')}</span>
+ <span class="wt"><b>Spin the wheel<span class="soon">Coming soon</span></b>
+ <small>Press it and it gives you one random objective for the day in Phuket \u2014 a beach, a market, a viewpoint, a fight night. For when you can\u2019t decide.</small></span>
+ <span class="pad">${ic('lock')}</span></button>`;
+const offerRow=o=>`<a class="offer" href="${o.u}" target="_blank" rel="noopener sponsored"><span class="ic">${ic(o.ic)}</span>
+ <span class="t"><b>${esc(o.n)}</b><small>${esc(o.d)}</small></span><span class="go">&rsaquo;</span></a>`;
+const askRow=a=>`<a class="offer" href="${WA}?text=${encodeURIComponent(a.msg)}" target="_blank" rel="noopener"><span class="ic">${ic(a.ic)}</span>
+ <span class="t"><b>${esc(a.n)}</b><small>${esc(a.d)}</small></span><span class="go">&rsaquo;</span></a>`;
+const buyBand=(t,p)=>`<div class="buy"><b>${esc(t)}</b><p>${esc(p)}</p>
+ <a class="btn" href="${BUY}">Get the Arrival Kit</a><div class="price">One payment · yours to keep</div></div>`;
+
+const V={};
+V.home=()=>`<img class="cover" src="img/hackthai-cover.webp" alt="Hack Thai Phuket — land like you're a local" width="900" height="450" fetchpriority="high">
+ <div class="hero"><div class="kick">Phuket · 2026/27</div>
+ <h1>Land like <em>you’re a local.</em></h1>
+ <p class="sub">The beaches, the food, the scams, the bikes and the trips. Built for tourists, made by locals.</p></div>
+ ${tripCard()}
+ <h2>Book it before you land</h2><div class="body">
+ <button class="phot" data-go="tours"><figure><img src="img/coastroad-cover.webp" alt="Hack Thai Phuket — take the coast road" width="900" height="450" loading="lazy"></figure>
+  <span class="pc"><b>Islands, canoes and fight nights</b><small>The days out worth booking before you fly</small><i aria-hidden="true">&rsaquo;</i></span></button>
+ ${OFFERS.slice(0,3).map(offerRow).join('')}
+ <button class="btn ghost sm" data-go="tours">See all trips and deals</button></div>
+ <h2>Ask me directly</h2><div class="body">${ASKS.slice(0,2).map(askRow).join('')}</div>
+ <h2>Nights out in Phuket</h2><div class="body">
+ <button class="phot" data-go="nights"><figure><img src="img/circoloco-night.webp" alt="Red-lit stage and packed dance floor at CircoLoco Thailand" width="800" height="533" loading="lazy"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
+  <span class="pc"><b>CircoLoco is coming back</b><small>Plus EDC, Afrojack and the rest of what’s on</small><i aria-hidden="true">&rsaquo;</i></span></button>
+ ${NIGHTS.slice(0,3).map(evRow).join('')}
+ <button class="btn ghost sm" data-go="nights">See what’s coming up</button></div>
+ <h2>Remote jobs<span class="free-tag">Free</span></h2><div class="body">
+ ${JOBS.jobs.length?`<div class="card"><span class="tag"><span class="dot"></span>${JOBS.count||JOBS.jobs.length} open roles · updated ${jd(JOBS.latestBatch)}</span>
+  ${JOBS.jobs.slice(0,2).map(j=>`<h3 style="margin-top:8px">${esc(j.title)}</h3><div class="co" style="color:var(--gold);font-weight:700;font-size:13.5px">${esc(j.company)}${j.salary?' · '+esc(j.salary.split(' /')[0]):''}</div>`).join('')}
+  <button class="btn ghost sm" style="margin-top:13px" data-go="jobs">See all ${JOBS.jobs.length} jobs</button></div>`
+  :'<div class="card"><p>Loading this week’s remote jobs…</p></div>'}</div>
+ <h2>What’s in the full kit</h2><div class="body">
+ ${TEASE.slice(0,3).map(([g,items])=>grpBlock(g,items.slice(0,3))).join('')}
+ <button class="btn ghost sm" data-go="guide">See everything that’s inside</button></div>
+ <h2>Pick your day for you</h2><div class="body">${wheelCard()}</div>
+ ${buyBand('66 pages. Written here, not scraped.','Every beach, every scam, what things actually cost, and the stuff nobody tells you until it’s too late.')}
+ ${foot()}`;
+
+V.tours=()=>`<img class="cover" src="img/hero-strip.webp" alt="Muay Thai, longtail boat and a scooter on a Phuket beach" width="1000" height="270" fetchpriority="high">
+ <div class="hero"><div class="kick">Trips and deals</div><h1>Book it <em>properly.</em></h1>
+ <p class="sub">Things I’d actually send a mate to. Booked direct with the operators.</p></div>
+ <h2>Before you fly</h2><div class="body">${offerRow(OFFERS[0])}</div>
+ <h2>Days out</h2><div class="body">${OFFERS.slice(1).map(offerRow).join('')}</div>
+ <h2>Or just ask me</h2><div class="body">${ASKS.map(askRow).join('')}
+ <p class="note" style="margin:14px 2px 0">I book transfers, bikes, boats and trips for people every week. Message me and I’ll sort it.</p></div>
+ ${foot()}`;
+
+V.nights=()=>`<figure class="nhero"><img src="img/circoloco-sunset.webp" alt="Sunset crowd beneath palm trees at CircoLoco Thailand" width="800" height="556" fetchpriority="high"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
+ <div class="hero"><div class="kick">Nights out</div><h1>What’s <em>on.</em></h1>
+ <p class="sub">The club nights, beach parties and festival weekends worth planning a trip around.</p></div>
+ <h2>Coming up</h2><div class="body">${NIGHTS.map(evRow).join('')}
+ <p class="note" style="margin:14px 2px 0">Dates come from the venues and promoters. Always check the official page before you book flights around one.</p></div>
+ <h2>The big two</h2><div class="body">
+ <div class="feat"><figure><img src="img/circoloco-night.webp" alt="Red-lit stage and packed dance floor at CircoLoco Thailand" width="800" height="533" loading="lazy"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
+  <div class="fb"><h3>CircoLoco Thailand</h3><div class="fw">Baba Beach Club · Natai · 2027</div>
+  <p>The DC10 crew on the sand across the bridge from Phuket. Lineup still to be announced — sort your ride home before you go.</p>
+  <button class="btn ghost sm" style="margin-top:12px" data-lock>${ic('lock')}Tickets, timings and getting back</button></div></div>
+ <div class="feat"><figure><img src="https://futurevibes.com/api/media/file/fest2.jpg" alt="Fireworks over the kineticFIELD main stage at EDC Thailand" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption>EDC Thailand · Photo via Future Vibes</figcaption></figure>
+  <div class="fb"><h3>EDC Thailand</h3><div class="fw">Rhythm Park · Laguna · 18–20 Dec</div>
+  <p>Three nights, kineticFIELD, and the whole island busy with it. Shuttles run from Patong and Laguna each night.</p>
+  <button class="btn ghost sm" style="margin-top:12px" data-lock>${ic('lock')}Shuttles, set times and afterparties</button></div></div></div>
+ <h2>What the kit adds</h2><div class="body"><div class="grp"><div class="gh">Locked</div>
+ ${NIGHT_LOCKED.map(t=>`<button class="lock" data-lock><span class="ln">${esc(t)}</span><span class="pad">${ic('lock')}</span></button>`).join('')}</div></div>
+ <h2>Getting there and back</h2><div class="body">${askRow(ASKS[0])}</div>
+ ${buyBand('Every night out, sorted','Set times, shuttles, afterparties and how to get home — plus the rest of the kit.')}
+ ${foot()}`;
+
+V.jobs=()=>{const L=JOBS.jobs||[];
+ return `<div class="hero"><div class="kick">Hack Thai · Jobs<span class="free-tag">Free</span></div>
+ <h1>Remote <em>jobs.</em></h1><p class="sub">Hand-picked remote roles you can do from Phuket. Updated every week.</p></div>
+ <div class="body">${L.length?`<div style="font-size:13px;font-weight:800;color:var(--gold);margin:4px 2px 14px">
+  <span class="dot"></span>${L.length} open roles · updated ${jd(JOBS.latestBatch)}</div>`+
+  L.map(j=>`<div class="job"><h3 style="font-size:16px;font-weight:800;line-height:1.3">${esc(j.title)}</h3>
+   <div class="co">${esc(j.company)}</div>
+   <div class="tg"><span>${esc(j.category||'')}</span><span>${esc(j.level||'')}</span></div>
+   ${j.salary?`<div class="sal">${esc(j.salary)}</div>`:'<div class="sal un">Salary not listed</div>'}
+   <a class="btn ghost sm" style="margin-top:12px" href="${esc(j.url)}" target="_blank" rel="noopener">View job</a></div>`).join('')
+  :'<div class="card"><p>Loading jobs… if this stays here, check your connection.</p></div>'}
+ <p class="note" style="margin:14px 2px 0">Roles are posted by the companies themselves. Always apply on their own page, and never pay anyone to apply.</p></div>
+ ${foot()}`};
+
+V.guide=()=>`<div class="hero"><div class="kick">The Arrival Kit</div><h1>What’s <em>inside.</em></h1>
+ <p class="sub">66 pages, ten sections. Here’s every page — the padlocked ones open when you get the kit.</p></div>
+ <h2>Free to read<span class="free-tag">Free</span></h2><div class="body">
+ ${FREEBIES.map(f=>`<div class="card"><h3>${esc(f.t)}</h3><p>${esc(f.d)}</p>
+  ${f.link?`<a class="btn ghost sm" style="margin-top:12px" href="${f.link[0]}" target="_blank" rel="noopener">${esc(f.link[1])}</a>`:''}</div>`).join('')}</div>
+ <h2>A real page from the kit<span class="free-tag">Free</span></h2><div class="body">
+ <p class="note" style="margin:0 2px 12px">This is one page, exactly as it appears inside. There are 65 more.</p>
+ ${sampleCard()}</div>
+ <h2>Pick your day for you</h2><div class="body">${wheelCard()}</div>
+ <h2>In the full kit</h2><div class="body">
+ ${TEASE.map(([g,items])=>grpBlock(g,items)).join('')}</div>
+ ${buyBand('Unlock all 66 pages','Plus the clickable island map with every beach, market and viewpoint pinned.')}
+ ${foot()}`;
+
+V.sos=()=>`<div class="hero"><div class="kick">Emergency<span class="free-tag">Always free</span></div>
+ <h1>Help in <em>Phuket.</em></h1><p class="sub">These numbers are free for everyone, kit or no kit. Save them now.</p></div>
+ <div class="body">${SOS.map(([n,t])=>`<a class="offer" href="tel:${t}"><span class="ic">${ic('sos')}</span>
+  <span class="t"><b>${esc(n)}</b><small>Tap to call ${esc(t)}</small></span><span class="go">&rsaquo;</span></a>`).join('')}
+ <p class="note" style="margin:16px 2px 0">Tourist Police on 1155 speak English and are usually the fastest route to sorting a problem with a rental, a bill or a scam.</p>
+ <div style="margin-top:16px">${askRow({ic:'chat',n:'Message Truth',d:'If you’re stuck and don’t know who to call.',msg:'Hi Truth, I need a hand in Phuket.'})}</div></div>
+ ${foot()}`;
+
+function foot(){return `<footer>Hack Thai by Truth Spills · Phuket<br>
+ Some links are affiliate links — they cost you nothing extra.<br>
+ <a href="${IG}" target="_blank" rel="noopener" style="color:var(--gold)">@truthspillsmentor</a></footer>`}
+
+const TABS=[['home','Home','home'],['tours','Trips','tour'],['nights','Nights','night'],['jobs','Jobs','job'],['guide','Guide','book'],['sos','Help','sos']];
+function render(){
+ $('#main').innerHTML=(V[view]||V.home)();
+ const hb=$('#hback'); if(hb)hb.hidden=(view==='home');
+ $('#nav').innerHTML=TABS.map(([v,l,i])=>`<button data-go="${v}" class="${v===view?'on':''}">${ic(i)}${l}</button>`).join('');
+}
+function go(v,push){
+ if(v===view)return;
+ view=v;render();scrollTo(0,0);
+ if(push!==false){try{history.pushState({v},'','#'+v)}catch(e){}}
+}
+try{history.replaceState({v:'home'},'','#home')}catch(e){}
+addEventListener('popstate',e=>{
+ const sh=document.querySelector('.shov'); if(sh){sh.remove();return}
+ const sb=document.querySelector('.sheet'); if(sb){sb.remove();return}
+ const v=(e.state&&e.state.v)||'home';
+ if(v!==view){view=v;render();scrollTo(0,0)}
+});
+document.addEventListener('click',e=>{
+ if(!e.target.closest('#hback'))return;
+ if(history.length>1)history.back(); else go('home');
+});
+document.addEventListener('click',e=>{
+ const g=e.target.closest('[data-go]'); if(g){go(g.dataset.go);return}
+ if(e.target.closest('[data-tripedit]')){tripEdit=true;render();return}
+ if(e.target.closest('[data-lock]')){sheet();return}
+});
+document.addEventListener('click',e=>{
+ const t=e.target.closest&&e.target.closest('[data-tripshare],[data-shclose]'); if(!t)return;
+ e.stopPropagation();
+ if(t.hasAttribute('data-tripshare')){tripShare();return}
+ const ov=t.closest('.shov'); if(ov)ov.remove();
+},true);
+document.addEventListener('submit',e=>{const f=e.target.closest('#tf'); if(!f)return; e.preventDefault();
+ const v=$('#td').value; if(!tripOk(v))return;
+ TRIP={date:v}; store.set('trip',TRIP); tripEdit=false; render(); scrollTo(0,0)});
+function sheet(){
+ const d=document.createElement('div'); d.className='sheet';
+ d.innerHTML=`<div><h3>That one’s in the Arrival Kit</h3>
+  <p>66 pages of what actually works in Phuket — the scams, the real prices, the beaches worth the drive, and a clickable island map. Written by someone who lives here.</p>
+  <a class="btn" href="${BUY}">Get the Arrival Kit</a>
+  <div class="row"><button class="btn ghost" data-close>Keep looking</button></div></div>`;
+ d.addEventListener('click',ev=>{if(ev.target===d||ev.target.closest('[data-close]'))d.remove()});
+ document.body.appendChild(d);
+}
+render(); loadJobs();
+</script></body></html>
