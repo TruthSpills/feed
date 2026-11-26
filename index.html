@@ -693,15 +693,15 @@ V.home=()=>`<picture><source srcset="img/hackthai-cover.avif" type="image/avif">
  <div class="hero"><div class="kick">Phuket · 2026/27</div>
  <h1>Land like <em>you’re a local.</em></h1>
  <p class="sub">The beaches, the food, the scams, the bikes and the trips. Built for tourists, made by locals.</p></div>
- <div class="body"><button class="offer" data-go="naka-market"><span class="t"><b>Naka Weekend Market</b><small>Open the map pin or show your driver the address in Thai</small></span><span class="go">›</span></button>
- ${memberLink}</div>
+ <div class="body">${memberLink}</div>
  ${tripCard()}
- <div class="body"><button class="offer" data-go="runway"><span class="t"><b>Thinking of leaving the UK?</b><small>Build your runway for the first 90 days abroad</small></span><span class="go" aria-hidden="true">›</span></button></div>
+ <div class="body"><button class="offer" data-go="naka-market"><span class="t"><b>Naka Weekend Market</b><small>Open the map pin or show your driver the address in Thai</small></span><span class="go">›</span></button></div>
  <h2>Book it before you land</h2><div class="body">
  <button class="phot" data-go="tours"><figure><picture><source srcset="img/coastroad-cover.avif" type="image/avif"><img src="img/coastroad-cover.webp" alt="Hack Thai Phuket — take the coast road" width="900" height="450" loading="lazy"></picture></figure>
   <span class="pc"><b>Islands, canoes and fight nights</b><small>The days out worth booking before you fly</small><i aria-hidden="true">&rsaquo;</i></span></button>
  ${OFFERS.slice(0,3).map(offerRow).join('')}
  <button class="btn ghost sm" data-go="tours">See all trips and deals</button></div>
+ <div class="body"><button class="offer" data-go="runway"><span class="t"><b>Thinking of leaving the UK?</b><small>Build your runway for the first 90 days abroad</small></span><span class="go" aria-hidden="true">›</span></button></div>
  <h2>Ask me directly</h2><div class="body">${ASKS.slice(0,2).map(askRow).join('')}</div>
  <h2>Nights out in Phuket</h2><div class="body">
  <button class="phot" data-go="nights"><figure><img src="img/circoloco-night.webp" alt="Red-lit stage and packed dance floor at CircoLoco Thailand" width="800" height="533" loading="lazy"><figcaption>CircoLoco Thailand · Past edition</figcaption></figure>
