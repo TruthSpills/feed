@@ -248,7 +248,7 @@ try{if(window.claude&&claude.use)claude.use('downloads').then(d=>{DL=d}).catch((
 let CARD_BLOB=null;
 const SHARE_TAG='hackthai.com · @truthspillsmentor';
 const WA='https://wa.me/447903845563', IG='https://ig.me/m/truthspillsmentor',
-      BUY='https://www.truth-spills.com/phuket',
+      ACCESS='https://www.truth-spills.com/hack-thai',
       FEED=['jobs.json',
             'https://raw.githubusercontent.com/TruthSpills/feed/main/jobs.json',
             'https://cdn.jsdelivr.net/gh/TruthSpills/feed@main/jobs.json'];
@@ -302,6 +302,15 @@ const ASKS=[
  {ic:'glove',n:'Train at Ludus',d:'Muay Thai in Chalong. Tell me how long you want to train.',msg:'Hi Truth, I’d like to ask about training at Ludus.'}
 ];
 
+function checkoutUrl() {
+ const url = new URL(ACCESS);
+ url.searchParams.set('buy', 'book');
+ const ref = new URLSearchParams(location.search).get('ref');
+ if (ref && /^[a-zA-Z0-9_-]{1,32}$/.test(ref)) url.searchParams.set('ref', ref);
+ return url.href;
+}
+const purchaseLink = '<a class="btn" href="'+checkoutUrl()+'">Get the bundle · £17</a>';
+const memberLink = '<a class="btn ghost sm" href="'+ACCESS+'?product=map">Already purchased? Open my guide</a>';
 /* ---------- free entries ---------- */
 const FREEBIES=[
  {t:'Fill in the free TDAC',d:'Submit your Thailand Digital Arrival Card within the three days before you arrive. If a site asks you to pay for it, close the tab — the official one is free. Use tdac.immigration.go.th and save your confirmation offline.',
@@ -513,13 +522,15 @@ const offerRow=o=>`<a class="offer" href="${o.u}" target="_blank" rel="noopener 
 const askRow=a=>`<a class="offer" href="${WA}?text=${encodeURIComponent(a.msg)}" target="_blank" rel="noopener"><span class="ic">${ic(a.ic)}</span>
  <span class="t"><b>${esc(a.n)}</b><small>${esc(a.d)}</small></span><span class="go">&rsaquo;</span></a>`;
 const buyBand=(t,p)=>`<div class="buy"><b>${esc(t)}</b><p>${esc(p)}</p>
- <a class="btn" href="${BUY}">Get the Arrival Kit</a><div class="price">One payment · yours to keep</div></div>`;
+ ${purchaseLink}<div class="price">One payment · Arrival Kit and Island Map</div>${memberLink}</div>`;
 
 const V={};
 V.home=()=>`<picture><source srcset="img/hackthai-cover.avif" type="image/avif"><img class="cover" src="img/hackthai-cover.webp" alt="Hack Thai Phuket — land like you're a local" width="900" height="450" fetchpriority="high"></picture>
  <div class="hero"><div class="kick">Phuket · 2026/27</div>
  <h1>Land like <em>you’re a local.</em></h1>
  <p class="sub">The beaches, the food, the scams, the bikes and the trips. Built for tourists, made by locals.</p></div>
+ <div class="body"><button class="offer" data-go="naka-market"><span class="t"><b>Naka Weekend Market</b><small>Open the map pin or show your driver the address in Thai</small></span><span class="go">›</span></button>
+ ${memberLink}</div>
  ${tripCard()}
  <h2>Book it before you land</h2><div class="body">
  <button class="phot" data-go="tours"><figure><picture><source srcset="img/coastroad-cover.avif" type="image/avif"><img src="img/coastroad-cover.webp" alt="Hack Thai Phuket — take the coast road" width="900" height="450" loading="lazy"></picture></figure>
@@ -544,6 +555,11 @@ V.home=()=>`<picture><source srcset="img/hackthai-cover.avif" type="image/avif">
  ${buyBand('66 pages. Written here, not scraped.','Every beach, every scam, what things actually cost, and the stuff nobody tells you until it’s too late.')}
  ${foot()}`;
 
+V['naka-market']=()=>`<div class="hero"><div class="kick">Wichit · Phuket</div><h1>Naka Weekend Market</h1></div>
+ <div class="body"><div class="card"><h3>Show your driver</h3><p lang="th" style="font-size:1.6rem">ไปตลาดนาคา ภูเก็ต</p>
+ <p>Please take me to Naka Market, Phuket.</p><a class="btn" href="https://www.google.com/maps/place/Naka+Weekend+Market/@7.8807253,98.3656356,17z/data=!3m1!4b1!4m6!3m5!1s0x305031dbd40261d3:0x53b5617aecb68bf6!8m2!3d7.8807253!4d98.3656356!16s%2Fg%2F11b7cdk_qy?entry=ttu&amp;g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Open the market in Maps</a></div></div>
+ ${buyBand('Explore the rest of the Island Map','Find more markets, beaches and places to eat by area. The bundle includes the Arrival Kit for your first days in Phuket.')}
+ ${foot()}`;
 V.tours=()=>`<picture><source srcset="img/hero-strip.avif" type="image/avif"><img class="cover" src="img/hero-strip.webp" alt="Muay Thai, longtail boat and a scooter on a Phuket beach" width="1000" height="270" fetchpriority="high"></picture>
  <div class="hero"><div class="kick">Trips and deals</div><h1>Book it <em>properly.</em></h1>
  <p class="sub">Things I’d actually send a mate to. Booked direct with the operators.</p></div>
@@ -622,19 +638,24 @@ function render(){
 function go(v,push){
  if(v===view)return;
  view=v;render();scrollTo(0,0);
- if(push!==false){try{history.pushState({v},'','#'+v)}catch(e){}}
+ if(push!==false){try{history.pushState({v,fromGuide:true},'','#'+v)}catch(e){}}
 }
-try{history.replaceState({v:'home'},'','#home')}catch(e){}
+function routeFromHash(){
+ const route=location.hash.slice(1);
+ return Object.prototype.hasOwnProperty.call(V,route)?route:'home';
+}
+view=routeFromHash();
+try{history.replaceState({...history.state,v:view},'','#'+view)}catch(e){}
 addEventListener('popstate',e=>{
  const ins=document.querySelector('.inst'); if(ins){ins.remove();return}
  const sh=document.querySelector('.shov'); if(sh){sh.remove();return}
  const sb=document.querySelector('.sheet'); if(sb){sb.remove();return}
- const v=(e.state&&e.state.v)||'home';
+ const v=routeFromHash();
  if(v!==view){view=v;render();scrollTo(0,0)}
 });
 document.addEventListener('click',e=>{
  if(!e.target.closest('#hback'))return;
- if(history.length>1)history.back(); else go('home');
+ if(history.state?.fromGuide)history.back(); else go('home');
 });
 document.addEventListener('click',e=>{
  const g=e.target.closest('[data-go]'); if(g){go(g.dataset.go);return}
@@ -654,8 +675,8 @@ function sheet(){
  const d=document.createElement('div'); d.className='sheet';
  d.innerHTML=`<div><h3>That one’s in the Arrival Kit</h3>
   <p>66 pages of what actually works in Phuket — the scams, the real prices, the beaches worth the drive, and a clickable island map. Written by someone who lives here.</p>
-  <a class="btn" href="${BUY}">Get the Arrival Kit</a>
-  <div class="row"><button class="btn ghost" data-close>Keep looking</button></div></div>`;
+  ${purchaseLink}
+  <p>One payment for the Arrival Kit and Island Map.</p>${memberLink}<div class="row"><button class="btn ghost" data-close>Keep looking</button></div></div>`;
  d.addEventListener('click',ev=>{if(ev.target===d||ev.target.closest('[data-close]'))d.remove()});
  document.body.appendChild(d);
 }
