@@ -304,7 +304,18 @@ const ASKS=[
 
 const creatorKey = 'ht_creator_v2';
 const creatorNames = new Map([
- ['ORIGINALSUPAD', 'Super D'], ['JANELLETHAI', 'Janelle'], ['COACHEDBYABI', 'Coached by Abi']
+ [
+  "ORIGINALSUPAD",
+  "Super D"
+ ],
+ [
+  "JANELLETHAI",
+  "Janelle"
+ ],
+ [
+  "COACHEDBYABI",
+  "Coached by Abi"
+ ]
 ]);
 const creatorQuery = new URLSearchParams(location.search);
 const validCreator = value => creatorNames.has(value) ? value : null;
