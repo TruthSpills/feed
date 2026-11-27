@@ -5,6 +5,7 @@
 <section id="intro"><p>The <strong>฿888</strong> fee covers your medical assessment and your medical certificate if approved.</p><p>A qualified clinician will carry out your assessment. They’ll take your details and ask about your symptoms.</p><button id="begin">Get started</button></section>
 <form hidden><label>Full name as shown on your passport<input required name="patient" autocomplete="name" maxlength="100"></label><label>Nationality<input required name="nationality" maxlength="100"></label><label>Email for the clinician’s reply<input required name="email" type="email" autocomplete="email" maxlength="254"></label><label><input required type="checkbox"> I agree to send these details via WhatsApp for referral to the clinician, who may contact me.</label><button id="next">Review referral</button></form>
 <section id="summary" hidden><h2 id="heading">Review your request</h2><dl></dl><p id="note"></p><button id="pay">Pay ฿888</button><button id="edit">Edit details</button><button id="send" hidden>Send my referral on WhatsApp</button><button id="pdf" hidden>Print or save referral PDF</button></section><p role="status" id="status"></p></main>
+<script src="/service-reference.js"></script>
 <script>
 const $=s=>document.querySelector(s), form=$('form'), key='ht-referral-intake-v1';
 const checkout=new URL('https://buy.stripe.com/3cI9AT2c5dDd6sY95h2VG0l');
@@ -31,7 +32,7 @@ function summary(){
 }
 $('#begin').onclick=$('#edit').onclick=edit;
 form.onsubmit=e=>{e.preventDefault();for(const input of form.querySelectorAll('[name]'))input.value=input.value.trim();if(!form.reportValidity())return;
- details={...details,...Object.fromEntries(new FormData(form)),ref:details.ref||(sessionId?'':crypto.randomUUID()),sessionId,until:Date.now()+3600000};summary()};
+ details={...details,...Object.fromEntries(new FormData(form)),ref:details.ref||(sessionId?'':newServiceReference()),sessionId,until:Date.now()+3600000};summary()};
 $('#pay').onclick=()=>{try{sessionStorage.setItem(key,JSON.stringify(details))}catch{$('#status').textContent='Open this page in Safari or Chrome to keep your details during checkout.';return}
  checkout.searchParams.set('client_reference_id',details.ref);location.assign(checkout)};
 $('#send').onclick=()=>{const msg=['Assessment referral','Name: '+details.patient,'Nationality: '+details.nationality,'Contact email: '+details.email,'Payment reference: '+sessionId];if(details.ref)msg.push('Referral reference: '+details.ref);location.assign('https://wa.me/447903845563?text='+encodeURIComponent(msg.join('\n')))};

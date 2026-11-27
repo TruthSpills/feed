@@ -16,7 +16,8 @@
 <section id="review" hidden><h2 tabindex="-1">Review your request</h2><dl><dt>Licence and price</dt><dd id="selection"></dd><dt>Phone</dt><dd id="number"></dd><dt>Email</dt><dd id="address"></dd></dl>
 <p>Payment opens in a new tab. After paying, return here to send your request.</p>
 <a class="button" id="pay" target="_blank" rel="noopener noreferrer"></a><p id="after" hidden>Finished paying? Open WhatsApp and tap Send. Your reference helps us match your request to your payment.</p><a class="button" id="send" hidden rel="noreferrer">Send request on WhatsApp</a><button type="button" class="secondary" id="edit">Edit details</button></section>
-</main><script>
+</main><script src="/service-reference.js"></script>
+<script>
 const form=document.querySelector('#request'), review=document.querySelector('#review');
 const packages={car:'Car · ฿12,500',bike:'Bike · ฿10,000',both:'Car and bike · ฿20,000'};
 const links={
@@ -42,7 +43,7 @@ form.onsubmit=event=>{
  document.querySelector('#address').textContent=email;
  const option=form.elements.licence.value;
  if(!draft || draft.option!==option || draft.number!==number || draft.email!==email){
-  draft={option,number,email,ref:crypto.randomUUID(),opened:false,expires:Date.now()+86400000};saveDraft();
+  draft={option,number,email,ref:newServiceReference(),opened:false,expires:Date.now()+86400000};saveDraft();
  }
  const url=new URL(links[option]);url.searchParams.set('client_reference_id',draft.ref);
  pay.href=url.href;pay.textContent='Pay '+choice.split(' · ')[1];send.hidden=after.hidden=!draft.opened;
