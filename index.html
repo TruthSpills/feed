@@ -835,8 +835,31 @@ V.jobs=()=>{const L=JOBS.jobs||[];
  <p class="note" style="margin:14px 2px 0">Roles are posted by the companies themselves. Always apply on their own page, and never pay anyone to apply.</p></div>
  ${foot()}`};
 
+function assessmentSection(){
+ return `<h2>Help and health</h2><div class="body"><button class="offer" data-go="cannabis-assessment"><span class="ic">${ic('sos')}</span><span class="t"><b>Cannabis medical certificate assessment</b><small>What to expect · Ganja Boyz lists ฿300</small></span><span class="go">›</span></button></div>`;
+}
+V['cannabis-assessment']=()=>`<div class="hero"><div class="kick">Arrival Kit · Help and health</div><h1>Cannabis medical certificate <em>assessment.</em></h1><p class="sub">Ganja Boyz lists its medical certificate service at ฿300 in Phuket. This guide is free to read and share.</p></div>
+ <div class="body"><div class="card"><h3>Before you apply</h3><p>A qualified practitioner in Thailand decides whether a prescription is appropriate after assessing you. Paying a fee does not guarantee approval.</p>
+ <p>On the provider’s site, choose <strong>Medical Certificate · ฿300</strong>. Confirm the fee and how you’ll consult the practitioner before submitting personal details. The provider’s form asks for a passport photo.</p>
+ <a class="btn ghost sm" href="https://ganjaboyz.store/" target="_blank" rel="noopener noreferrer">View the provider’s assessment</a></div>
+ <div class="card"><h3>Travelling with cannabis?</h3><p>Thailand requires a valid local prescription for cannabis flower. Check the official visitor guidance before you travel.</p><a href="https://www.thailand.go.th/useful-information-detail/cannabis-now-strictly-regulated-in-thailand--important-notice-for-tourists" target="_blank" rel="noopener noreferrer">Read Thailand’s visitor guidance</a></div>
+ <button class="btn ghost sm" data-share-assessment>Share this guide</button><p class="note" id="assessment-share-status" role="status"></p></div>${foot()}`;
+document.addEventListener('click',async event=>{
+ if(!event.target.closest('[data-share-assessment]'))return;
+ const url=new URL('https://hackthai.com/');
+ const creator=savedCreator();
+ if(creator)url.searchParams.set('ref',creator);
+ url.hash='cannabis-assessment';
+ const status=document.getElementById('assessment-share-status');
+ try{
+  if(navigator.share){await navigator.share({title:'Cannabis medical certificate assessment in Phuket',url:url.href});return;}
+  await navigator.clipboard.writeText(url.href);status.textContent='Link copied.';
+ }catch(error){if(error.name!=='AbortError')status.textContent=url.href;}
+});
+
 V.guide=()=>`<div class="hero"><div class="kick">The Arrival Kit</div><h1>What’s <em>inside.</em></h1>
  <p class="sub">66 pages, ten sections. Here’s every page — the padlocked ones open when you get the kit.</p></div>
+ ${assessmentSection()}
  <h2>Free to read<span class="free-tag">Free</span></h2><div class="body">
  ${FREEBIES.map(f=>`<div class="card"><h3>${esc(f.t)}</h3><p>${esc(f.d)}</p>
   ${f.link?`<a class="btn ghost sm" style="margin-top:12px" href="${f.link[0]}" target="_blank" rel="noopener">${esc(f.link[1])}</a>`:''}</div>`).join('')}</div>
@@ -855,6 +878,7 @@ V.sos=()=>`<div class="hero"><div class="kick">Emergency<span class="free-tag">A
   <span class="t"><b>${esc(n)}</b><small>Tap to call ${esc(t)}</small></span><span class="go">&rsaquo;</span></a>`).join('')}
  <p class="note" style="margin:16px 2px 0">Tourist Police on 1155 speak English and are usually the fastest route to sorting a problem with a rental, a bill or a scam.</p>
  <div style="margin-top:16px">${askRow({ic:'chat',n:'Message Truth',d:'If you’re stuck and don’t know who to call.',msg:'Hi Truth, I need a hand in Phuket.'})}</div></div>
+ ${assessmentSection()}
  ${foot()}`;
 
 function foot(){return `<footer>Hack Thai by Truth Spills · Phuket<br>
