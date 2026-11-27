@@ -836,12 +836,10 @@ V.jobs=()=>{const L=JOBS.jobs||[];
  ${foot()}`};
 
 function assessmentSection(){
- return `<h2>Help and health</h2><div class="body"><button class="offer" data-go="cannabis-assessment"><span class="ic">${ic('sos')}</span><span class="t"><b>Cannabis medical certificate assessment</b><small>Free guide · Assessment referral available</small></span><span class="go">›</span></button></div>`;
+ return `<h2>Help and health</h2><div class="body"><button class="offer" data-go="cannabis-assessment"><span class="ic">${ic('sos')}</span><span class="t"><b>Cannabis medical certificate assessment</b><small>Referral for your medical assessment</small></span><span class="go">›</span></button></div>`;
 }
-V['cannabis-assessment']=()=>`<div class="hero"><div class="kick">Arrival Kit · Help and health</div><h1>Cannabis medical certificate <em>assessment.</em></h1><p class="sub">Ganja Boyz lists its medical certificate service at ฿300 in Phuket. This guide is free to read and share.</p></div>
- <div class="body"><div class="card"><h3>Arrange a referral with Truth</h3><p>฿888 for the introduction. The provider charges separately for the assessment.</p><a class="btn ghost sm" href="/assessment.html">Start my referral</a></div><div class="card"><h3>Before you apply</h3><p>A qualified practitioner in Thailand decides whether a prescription is appropriate after assessing you. Paying a fee does not guarantee approval.</p>
- <p>On the provider’s site, choose <strong>Medical Certificate · ฿300</strong>. Confirm the fee and how you’ll consult the practitioner before submitting personal details. The provider’s form asks for a passport photo.</p>
- <a class="btn ghost sm" href="https://ganjaboyz.store/" target="_blank" rel="noopener noreferrer">View the provider’s assessment</a></div>
+V['cannabis-assessment']=()=>`<div class="hero"><div class="kick">Arrival Kit · Help and health</div><h1>Cannabis medical certificate <em>assessment.</em></h1></div>
+ <div class="body"><div class="card"><h3>Referral for your medical assessment</h3><a class="btn ghost sm" href="/assessment.html">Start my referral</a></div>
  <div class="card"><h3>Travelling with cannabis?</h3><p>Thailand requires a valid local prescription for cannabis flower. Check the official visitor guidance before you travel.</p><a href="https://www.thailand.go.th/useful-information-detail/cannabis-now-strictly-regulated-in-thailand--important-notice-for-tourists" target="_blank" rel="noopener noreferrer">Read Thailand’s visitor guidance</a></div>
  <button class="btn ghost sm" data-share-assessment>Share this guide</button><p class="note" id="assessment-share-status" role="status"></p></div>${foot()}`;
 document.addEventListener('click',async event=>{
