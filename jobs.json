@@ -1,9 +1,103 @@
 {
  "version": 1,
- "updated": "2026-11-25T17:50:00+07:00",
- "latestBatch": "2026-11-24",
- "count": 25,
+ "updated": "2026-11-28T09:26:34+07:00",
+ "latestBatch": "2026-11-26",
+ "count": 30,
  "jobs": [
+  {
+   "id": "f7fe44b666",
+   "added": "2026-11-26",
+   "title": "Data API Engineer",
+   "company": "Supabase",
+   "category": "Developer Tools / Databases",
+   "level": "Senior",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/156939-data-api-engineer",
+   "tags": [
+    "dev",
+    "data"
+   ],
+   "levels": [
+    "senior"
+   ]
+  },
+  {
+   "id": "0635447161",
+   "added": "2026-11-26",
+   "title": "Microservices Engineer",
+   "company": "Canonical",
+   "category": "Software / Open Source",
+   "level": "All levels",
+   "salary": null,
+   "note": "Company travel twice a year.",
+   "location": "Worldwide",
+   "url": "https://jobicy.com/jobs/149558-microservices-engineer",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "entry",
+    "mid",
+    "senior",
+    "lead"
+   ]
+  },
+  {
+   "id": "eed3aaa449",
+   "added": "2026-11-26",
+   "title": "Content Engineer, Developer Documentation",
+   "company": "LiveKit",
+   "category": "Real-time Voice/Video Infrastructure",
+   "level": "Mid",
+   "salary": "US$170,000–230,000 / yr",
+   "note": "Employer lists this role as US remote.",
+   "location": "United States (remote)",
+   "url": "https://www.realworkfromanywhere.com/jobs/content-engineer-developer-documentation-livekit-6618",
+   "tags": [
+    "dev"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "90de909d80",
+   "added": "2026-11-26",
+   "title": "Security Engineer",
+   "company": "Chess.com",
+   "category": "Gaming / Consumer Internet",
+   "level": "Mid",
+   "salary": null,
+   "note": null,
+   "location": "Worldwide",
+   "url": "https://www.realworkfromanywhere.com/jobs/security-engineer-chess-com-681",
+   "tags": [
+    "security"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
+  {
+   "id": "38b5d2e7ed",
+   "added": "2026-11-26",
+   "title": "Paid Media Specialist",
+   "company": "Kinsta",
+   "category": "Web Hosting / SaaS",
+   "level": "Mid",
+   "salary": null,
+   "note": "Employer lists London. Confirm eligibility to work from Thailand before applying.",
+   "location": "London (remote)",
+   "url": "https://www.realworkfromanywhere.com/jobs/paid-media-specialist-kinsta-5223",
+   "tags": [
+    "marketing"
+   ],
+   "levels": [
+    "mid"
+   ]
+  },
   {
    "id": "debaa84fb9",
    "added": "2026-11-24",
